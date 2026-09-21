@@ -1,0 +1,427 @@
+{
+  "gNB": [
+    {
+      "position": [0, 0, 10],
+      "characteristics": {
+        "phy": {
+          "tx_power": "20",
+          "channel_bandwidth": 100000000,
+          "pattern": "DL|DL|UL|UL|",
+          "numerology": 2
+        },
+        "mac": {
+          "scheduler_type": "TdmaQos"
+        }
+      }
+    }
+  ],
+  "cloud": {
+    "id": "dashboard",
+    "position": [],
+    "services": [
+      {
+        "id": "main",
+        "port": 1234
+      }
+    ]
+  },
+  "ue": [
+    {
+      "id": "cam1",
+      "position": [-40, 40, 1.5],
+      "services": [],
+      "characteristics": {
+        "phy": {
+          "tx_power": "10"
+        }
+      }
+    },
+    {
+      "id": "cam2",
+      "position": [-40, -40, 1.5],
+      "services": [],
+      "characteristics": {
+        "phy": {
+          "tx_power": "10"
+        }
+      }
+    },
+    {
+      "id": "cropper1",
+      "position": [40, 0, 1.5],
+      "services": [
+        {
+          "id": "main",
+          "port": 1234
+        }
+      ],
+      "characteristics": {
+        "phy": {
+          "tx_power": "10"
+        }
+      }
+    },
+    {
+      "id": "cropper2",
+      "position": [0, 40, 1.5],
+      "services": [
+        {
+          "id": "main",
+          "port": 1234
+        }
+      ],
+      "characteristics": {
+        "phy": {
+          "tx_power": "10"
+        }
+      }
+    },
+    {
+      "id": "proc_gender1",
+      "position": [40, 40, 1.5],
+      "services": [
+        {
+          "id": "main",
+          "port": 1234
+        }
+      ],
+      "characteristics": {
+        "phy": {
+          "tx_power": "10"
+        }
+      }
+    },
+    {
+      "id": "proc_gender2",
+      "position": [80, 0, 1.5],
+      "services": [
+        {
+          "id": "main",
+          "port": 1234
+        }
+      ],
+      "characteristics": {
+        "phy": {
+          "tx_power": "10"
+        }
+      }
+    },
+    {
+      "id": "proc_age1",
+      "position": [80, 40, 1.5],
+      "services": [
+        {
+          "id": "main",
+          "port": 1234
+        }
+      ],
+      "characteristics": {
+        "phy": {
+          "tx_power": "10"
+        }
+      }
+    },
+    {
+      "id": "proc_age2",
+      "position": [80, 80, 1.5],
+      "services": [
+        {
+          "id": "main",
+          "port": 1234
+        }
+      ],
+      "characteristics": {
+        "phy": {
+          "tx_power": "10"
+        }
+      }
+    },
+    {
+      "id": "proc_hair_color1",
+      "position": [0, 80, 1.5],
+      "services": [
+        {
+          "id": "main",
+          "port": 1234
+        }
+      ],
+      "characteristics": {
+        "phy": {
+          "tx_power": "10"
+        }
+      }
+    },
+    {
+      "id": "proc_hair_color2",
+      "position": [40, 80, 1.5],
+      "services": [
+        {
+          "id": "main",
+          "port": 1234
+        }
+      ],
+      "characteristics": {
+        "phy": {
+          "tx_power": "10"
+        }
+      }
+    },
+    {
+      "id": "proc_state_analyzer1",
+      "position": [120, 0, 1.5],
+      "services": [
+        {
+          "id": "main",
+          "port": 1234
+        }
+      ],
+      "characteristics": {
+        "phy": {
+          "tx_power": "10"
+        }
+      }
+    },
+    {
+      "id": "proc_state_analyzer2",
+      "position": [120, 40, 1.5],
+      "services": [
+        {
+          "id": "main",
+          "port": 1234
+        }
+      ],
+      "characteristics": {
+        "phy": {
+          "tx_power": "10"
+        }
+      }
+    },
+    {
+      "id": "video_merger",
+      "position": [120, 80, 1.5],
+      "services": [
+        {
+          "id": "main",
+          "port": 1234
+        }
+      ],
+      "characteristics": {
+        "phy": {
+          "tx_power": "10"
+        }
+      }
+    }
+  ],
+  "connections": [
+    {
+      "from": "cam1",
+      "to": "cropper1",
+      "characteristics": {
+        "application": {
+          "dataRate": "20Mbps",
+          "point_to_service": "main"
+        }
+      }
+    },
+    {
+      "from": "cropper1",
+      "to": "proc_gender1",
+      "characteristics": {
+        "application": {
+          "dataRate": "2Mbps",
+          "point_to_service": "main"
+        }
+      }
+    },
+    {
+      "from": "cropper1",
+      "to": "proc_age1",
+      "characteristics": {
+        "application": {
+          "dataRate": "2Mbps",
+          "point_to_service": "main"
+        }
+      }
+    },
+    {
+      "from": "cropper1",
+      "to": "proc_hair_color1",
+      "characteristics": {
+        "application": {
+          "dataRate": "2Mbps",
+          "point_to_service": "main"
+        }
+      }
+    },
+    {
+      "from": "cropper1",
+      "to": "proc_state_analyzer1",
+      "characteristics": {
+        "application": {
+          "dataRate": "2Mbps",
+          "point_to_service": "main"
+        }
+      }
+    },
+    {
+      "from": "cam2",
+      "to": "cropper2",
+      "characteristics": {
+        "application": {
+          "dataRate": "20Mbps",
+          "point_to_service": "main"
+        }
+      }
+    },
+    {
+      "from": "cropper2",
+      "to": "proc_gender2",
+      "characteristics": {
+        "application": {
+          "dataRate": "2Mbps",
+          "point_to_service": "main"
+        }
+      }
+    },
+    {
+      "from": "cropper2",
+      "to": "proc_age2",
+      "characteristics": {
+        "application": {
+          "dataRate": "2Mbps",
+          "point_to_service": "main"
+        }
+      }
+    },
+    {
+      "from": "cropper2",
+      "to": "proc_hair_color2",
+      "characteristics": {
+        "application": {
+          "dataRate": "2Mbps",
+          "point_to_service": "main"
+        }
+      }
+    },
+    {
+      "from": "cropper2",
+      "to": "proc_state_analyzer2",
+      "characteristics": {
+        "application": {
+          "dataRate": "2Mbps",
+          "point_to_service": "main"
+        }
+      }
+    },
+    {
+      "from": "proc_gender1",
+      "to": "video_merger",
+      "characteristics": {
+        "application": {
+          "dataRate": "2Mbps",
+          "point_to_service": "main"
+        }
+      }
+    },
+    {
+      "from": "proc_gender2",
+      "to": "video_merger",
+      "characteristics": {
+        "application": {
+          "dataRate": "2Mbps",
+          "point_to_service": "main"
+        }
+      }
+    },
+    {
+      "from": "proc_age1",
+      "to": "video_merger",
+      "characteristics": {
+        "application": {
+          "dataRate": "2Mbps",
+          "point_to_service": "main"
+        }
+      }
+    },
+    {
+      "from": "proc_age2",
+      "to": "video_merger",
+      "characteristics": {
+        "application": {
+          "dataRate": "2Mbps",
+          "point_to_service": "main"
+        }
+      }
+    },
+    {
+      "from": "proc_hair_color1",
+      "to": "video_merger",
+      "characteristics": {
+        "application": {
+          "dataRate": "2Mbps",
+          "point_to_service": "main"
+        }
+      }
+    },
+    {
+      "from": "proc_hair_color2",
+      "to": "video_merger",
+      "characteristics": {
+        "application": {
+          "dataRate": "2Mbps",
+          "point_to_service": "main"
+        }
+      }
+    },
+    {
+      "from": "proc_state_analyzer1",
+      "to": "video_merger",
+      "characteristics": {
+        "application": {
+          "dataRate": "2Mbps",
+          "point_to_service": "main"
+        }
+      }
+    },
+    {
+      "from": "proc_state_analyzer2",
+      "to": "video_merger",
+      "characteristics": {
+        "application": {
+          "dataRate": "2Mbps",
+          "point_to_service": "main"
+        }
+      }
+    },
+    {
+      "from": "cam1",
+      "to": "video_merger",
+      "characteristics": {
+        "application": {
+          "dataRate": "20Mbps",
+          "point_to_service": "main"
+        }
+      }
+    },
+    {
+      "from": "cam2",
+      "to": "video_merger",
+      "characteristics": {
+        "application": {
+          "dataRate": "20Mbps",
+          "point_to_service": "main"
+        }
+      }
+    },
+    {
+      "from": "video_merger",
+      "to": "dashboard",
+      "characteristics": {
+        "application": {
+          "dataRate": "20Mbps",
+          "point_to_service": "main"
+        }
+      }
+    }
+  ]
+}
