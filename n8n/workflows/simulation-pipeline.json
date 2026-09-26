@@ -1,0 +1,455 @@
+{
+  "name": "Thesis - Simulation Pipeline",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        32
+      ],
+      "id": "2655ea7e-bd9a-4d3d-bbb7-abd23830b49c",
+      "name": "When clicking ‘Execute workflow’"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "2144fe0c-6897-4c41-bb84-151802bccce8",
+              "name": "experiment_id",
+              "value": "={{ $json.experiment_id }}",
+              "type": "string"
+            },
+            {
+              "id": "c86ba70a-62e0-441b-95a0-8894b532876b",
+              "name": "ue_distance_2d_m",
+              "value": "={{ $json.ue_distance_2d_m }}",
+              "type": "number"
+            },
+            {
+              "id": "92be2535-da1b-4eae-a67a-12224b0b2d06",
+              "name": "ue_tx_power_dbm",
+              "value": "={{ $json.ue_tx_power_dbm }}",
+              "type": "number"
+            },
+            {
+              "id": "821516d2-440d-492d-9f93-b59db184c94a",
+              "name": "offered_load_mbps",
+              "value": "={{ $json.offered_load_mbps }}",
+              "type": "number"
+            },
+            {
+              "id": "6d44ae7d-394a-4b00-a9f0-4f619ab5ff66",
+              "name": "rng_seed",
+              "value": "={{ $json.rng_seed }}",
+              "type": "number"
+            },
+            {
+              "id": "13c2ff09-fd23-41e0-989f-7bce23774286",
+              "name": "rng_run",
+              "value": "={{ $json.rng_run }}",
+              "type": "number"
+            },
+            {
+              "id": "e4f37dce-c628-4be0-aed0-95b40e2afd2f",
+              "name": "experiment_index",
+              "value": "={{ $json.experiment_index }}",
+              "type": "number"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.5,
+      "position": [
+        672,
+        32
+      ],
+      "id": "c88bf703-1b2d-455c-b088-5a3174c416c8",
+      "name": "Edit Fields"
+    },
+    {
+      "parameters": {
+        "command": "=python3 -c 'import json, math; from pathlib import Path; d=float(\"{{ Number($json.ue_distance_2d_m) }}\"); p=float(\"{{ Number($json.ue_tx_power_dbm) }}\"); r=float(\"{{ Number($json.offered_load_mbps) }}\"); s=float(\"{{ Number($json.rng_seed) }}\"); n=float(\"{{ Number($json.rng_run) }}\"); idx=float(\"{{ Number($json.experiment_index) }}\"); eid=\"{{ Number($execution.id) }}\"; assert eid.isdigit(), \"Invalid execution ID\"; assert all(math.isfinite(v) for v in (d,p,r,s,n,idx)), \"Non-finite input\"; assert idx.is_integer() and 1<=idx<=1000000, \"Invalid experiment index\"; assert d>0 and r>0, \"Distance and load must be positive\"; assert s.is_integer() and 1<=s<4294967087, \"Invalid seed\"; assert n.is_integer() and 1<=n<=9007199254740991, \"Invalid run\"; bps=round(r*1000000); assert bps>0, \"Load too small\"; c=json.loads(Path(\"scratch/default/dag.json\").read_text()); c[\"ue\"][0][\"placement\"][\"distance_2d_m\"]=d; c[\"ue\"][0][\"characteristics\"][\"phy\"][\"tx_power\"]=p; c[\"connections\"][0][\"characteristics\"][\"application\"][\"dataRate\"]=str(bps)+\"bps\"; c[\"simulation\"][\"seed\"]=int(s); c[\"simulation\"][\"run\"]=int(n); folder=Path(\"experiments\")/(\"execution_\"+eid)/(\"experiment_\"+str(int(idx))); folder.mkdir(parents=True,exist_ok=False); target=folder/\"config.json\"; target.write_text(json.dumps(c,indent=2)); print(json.dumps({\"experiment_index\":int(idx),\"config_path\":str(target),\"results_path\":str(folder/\"results.json\"),\"experiment_dir\":str(folder.resolve()),\"ue_distance_2d_m\":d,\"ue_tx_power_dbm\":p,\"offered_load_bps\":bps,\"rng_seed\":int(s),\"rng_run\":int(n)}))'",
+        "cwd": "/ABSOLUTE/PATH/TO/ns-3.47"
+      },
+      "type": "n8n-nodes-base.ssh",
+      "typeVersion": 1,
+      "position": [
+        896,
+        32
+      ],
+      "id": "492ea458-045b-4a51-a579-96db561400cf",
+      "name": "Create configuration"
+    },
+    {
+      "parameters": {
+        "command": "=./ns3 run \"scratch/default/nr-scenario --topologyFile={{ JSON.parse($('Create configuration').item.json.stdout).config_path }} --outputFile={{ JSON.parse($('Create configuration').item.json.stdout).results_path }}\" --no-build",
+        "cwd": "/ABSOLUTE/PATH/TO/ns-3.47"
+      },
+      "type": "n8n-nodes-base.ssh",
+      "typeVersion": 1,
+      "position": [
+        1456,
+        16
+      ],
+      "id": "2180400d-d2dd-4054-ace9-d18da24e388b",
+      "name": "Run simulation"
+    },
+    {
+      "parameters": {
+        "command": "=cat \"{{ JSON.parse($('Create configuration').item.json.stdout).results_path }}\"",
+        "cwd": "/ABSOLUTE/PATH/TO/ns-3.47"
+      },
+      "type": "n8n-nodes-base.ssh",
+      "typeVersion": 1,
+      "position": [
+        2000,
+        0
+      ],
+      "id": "03effffe-0aae-49db-a541-402aba7c9c8e",
+      "name": "Read results"
+    },
+    {
+      "parameters": {
+        "jsCode": "return $input.all().map((item, index) => {\n  const read = item.json;\n  const create = $(\"Create configuration\").itemMatching(index).json;\n  const simulation = $(\"Run simulation\").itemMatching(index).json;\n  const inputs = $(\"Edit Fields\").itemMatching(index).json;\n\n  for (const [name, result] of [\n    [\"Create configuration\", create],\n    [\"Run simulation\", simulation],\n    [\"Read results\", read],\n  ]) {\n    if (result.code !== 0) {\n      throw new Error(`${name} failed: ${result.stderr}`);\n    }\n  }\n\n  const results = JSON.parse(read.stdout);\n  const config = JSON.parse(create.stdout);\n\n  if (\n    results.flow_count !== 1 ||\n    !Array.isArray(results.flows) ||\n    results.flows.length !== 1\n  ) {\n    throw new Error(\"Expected exactly one flow\");\n  }\n\n  const p = results.parameters;\n  const m = results.mean;\n  const flow = results.flows[0];\n\n  if (\n    p.ue_gnb_distance_2d_m !== config.ue_distance_2d_m ||\n    p.ue_tx_power_dbm !== config.ue_tx_power_dbm ||\n    p.data_rate_bps !== config.offered_load_bps\n  ) {\n    throw new Error(\n      \"Results do not match the generated configuration\"\n    );\n  }\n\n  return {\n    json: {\n      experiment_id: inputs.experiment_id,\n      n8n_execution_id: String($execution.id),\n      data_source: \"ns3\",\n\n      config_path: config.config_path,\n      results_path: config.results_path,\n      experiment_dir: config.experiment_dir,\n\n      ue_distance_2d_m: p.ue_gnb_distance_2d_m,\n      ue_distance_3d_m: p.ue_gnb_distance_3d_m,\n      ue_tx_power_dbm: p.ue_tx_power_dbm,\n      offered_load_mbps: p.data_rate_bps / 1000000,\n      bandwidth_hz: p.channel_bandwidth_hz,\n      numerology: p.numerology,\n      tdd_pattern: p.tdd_pattern,\n      packet_size_bytes: p.packet_size_bytes,\n      rlc_buffer_size_bytes: p.rlc_buffer_size_bytes,\n      rng_seed: config.rng_seed,\n      rng_run: config.rng_run,\n\n      throughput_mbps: m.throughput_mbps,\n      app_goodput_mbps:\n        results.application.goodput_over_app_window_mbps,\n      end_to_end_delay_ms: m.end_to_end_delay_ms,\n      jitter_ms: m.jitter_ms,\n      loss_fraction: m.loss_fraction,\n\n      tx_packets: flow.tx_packets,\n      rx_packets: flow.rx_packets,\n      ip_rx_bytes: flow.ip_rx_bytes,\n      unreceived_packets_after_drain:\n        flow.unreceived_packets_after_drain\n    },\n    pairedItem: { item: index }\n  };\n});"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2320,
+        0
+      ],
+      "id": "91c39fbe-8ae1-4679-9a1e-3933a73aa0b5",
+      "name": "Prepare dataset row"
+    },
+    {
+      "parameters": {
+        "options": {
+          "fileName": "={{ $json.experiment_id + '_exec_' + $json.n8n_execution_id + '.csv' }}",
+          "headerRow": true
+        }
+      },
+      "type": "n8n-nodes-base.convertToFile",
+      "typeVersion": 1.1,
+      "position": [
+        2608,
+        0
+      ],
+      "id": "82e472e7-7723-44c6-b483-a8e49fb5fe0f",
+      "name": "Convert to File"
+    },
+    {
+      "parameters": {
+        "resource": "file",
+        "path": "={{ $('Prepare dataset row').item.json.experiment_dir }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.ssh",
+      "typeVersion": 1,
+      "position": [
+        2944,
+        0
+      ],
+      "id": "d856b4e0-96eb-4174-af21-3d2de11f7bd9",
+      "name": "Save CSV"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "01afa8d3-f693-402d-8ebc-b0c2f63397db",
+              "leftValue": "={{ $json.code }}",
+              "rightValue": 0,
+              "operator": {
+                "type": "number",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        1120,
+        32
+      ],
+      "id": "deb42f24-8e16-4dce-9552-4a37c48d229c",
+      "name": "Configuration succeeded"
+    },
+    {
+      "parameters": {
+        "errorMessage": "Configuration creation failed. Check the stderr output of the Create configuration node."
+      },
+      "type": "n8n-nodes-base.stopAndError",
+      "typeVersion": 1,
+      "position": [
+        1360,
+        208
+      ],
+      "id": "f5fd4865-a01c-4409-add9-c0d4902882e5",
+      "name": "Stop and Error"
+    },
+    {
+      "parameters": {
+        "errorMessage": "Simulation failed. Check the stderr output of the Run simulation node."
+      },
+      "type": "n8n-nodes-base.stopAndError",
+      "typeVersion": 1,
+      "position": [
+        1856,
+        144
+      ],
+      "id": "866b7aba-aac8-4b0e-8fb0-661a5c8a5369",
+      "name": "Stop and Error1"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "88203c8c-7793-4473-b760-574e8e1286ff",
+              "leftValue": "={{ $json.code }}",
+              "rightValue": 0,
+              "operator": {
+                "type": "number",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        1664,
+        16
+      ],
+      "id": "b7b35010-5842-4227-a0eb-84cc5c7117f9",
+      "name": "Simulation succeeded"
+    },
+    {
+      "parameters": {
+        "jsCode": "const distances = [50, 100, 150];\n\nreturn distances.map((distance, index) => ({\n  json: {\n    experiment_index: index + 1,\n    experiment_id: `distance_${distance}m`,\n    ue_distance_2d_m: distance,\n    ue_tx_power_dbm: 10,\n    offered_load_mbps: 20,\n    rng_seed: 42,\n    rng_run: 1\n  },\n  pairedItem: { item: 0 }\n}));"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        224,
+        32
+      ],
+      "id": "baa12955-c51e-4d86-889e-2381e014f283",
+      "name": "Generate experiments"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        448,
+        32
+      ],
+      "id": "e59f71f5-a8bd-4528-84a5-9acf81e5cd07",
+      "name": "Loop Over Items"
+    },
+    {
+      "parameters": {
+        "command": "=python3 -c 'import csv, io, json; from pathlib import Path; eid=\"{{ Number($execution.id) }}\"; assert eid.isdigit(), \"Invalid execution ID\"; root=Path(\"experiments\")/(\"execution_\"+eid); groups=[sorted((root/(\"experiment_\"+str(i))).glob(\"*.csv\")) for i in (1,2,3)]; assert all(len(g)==1 for g in groups), \"Expected exactly one CSV per experiment\"; batches=[list(csv.DictReader(io.StringIO(g[0].read_text(encoding=\"utf-8-sig\")))) for g in groups]; assert all(len(b)==1 for b in batches), \"Expected one data row per experiment\"; rows=[b[0] for b in batches]; fields=list(rows[0]); assert all(list(row)==fields for row in rows), \"CSV columns differ\"; assert all(row[\"n8n_execution_id\"]==eid for row in rows), \"Execution ID mismatch\"; assert [row[\"experiment_id\"] for row in rows]==[\"distance_50m\",\"distance_100m\",\"distance_150m\"], \"Unexpected experiment IDs\"; assert [float(row[\"ue_distance_2d_m\"]) for row in rows]==[50,100,150], \"Unexpected distances\"; target=root/\"batch_dataset.csv\"; f=target.open(\"x\",newline=\"\",encoding=\"utf-8\"); writer=csv.DictWriter(f,fieldnames=fields); writer.writeheader(); writer.writerows(rows); f.close(); print(json.dumps({\"dataset_path\":str(target.resolve()),\"rows\":len(rows),\"experiments\":[row[\"experiment_id\"] for row in rows]}))'",
+        "cwd": "/ABSOLUTE/PATH/TO/ns-3.47"
+      },
+      "type": "n8n-nodes-base.ssh",
+      "typeVersion": 1,
+      "position": [
+        688,
+        160
+      ],
+      "id": "c28181e9-2890-4fd5-81b6-b8b3390becc5",
+      "name": "Merge experiment CSVs",
+      "executeOnce": true
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "node": "Generate experiments",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "Create configuration",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create configuration": {
+      "main": [
+        [
+          {
+            "node": "Configuration succeeded",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Run simulation": {
+      "main": [
+        [
+          {
+            "node": "Simulation succeeded",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Read results": {
+      "main": [
+        [
+          {
+            "node": "Prepare dataset row",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare dataset row": {
+      "main": [
+        [
+          {
+            "node": "Convert to File",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Convert to File": {
+      "main": [
+        [
+          {
+            "node": "Save CSV",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Configuration succeeded": {
+      "main": [
+        [
+          {
+            "node": "Run simulation",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Stop and Error",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Simulation succeeded": {
+      "main": [
+        [
+          {
+            "node": "Read results",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Stop and Error1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Generate experiments": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Items": {
+      "main": [
+        [
+          {
+            "node": "Merge experiment CSVs",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Save CSV": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  }
+}

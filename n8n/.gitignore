@@ -1,0 +1,20 @@
+# Credentials and local configuration
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+credentials*.json
+
+# Generated simulation and runtime data
+experiments/
+build/
+cmake-cache/
+n8n_data/
+__pycache__/
+*.pyc
+*.o
+*.so
+*.bak
+.DS_Store
+Thumbs.db
