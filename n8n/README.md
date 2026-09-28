@@ -25,23 +25,22 @@ flowchart LR
 
 [View or download the n8n workflow](workflows/simulation-pipeline.json)
 
-## Current experiments
+## Workflow nodes
 
-The workflow runs three experiments at UE distances of **50, 100 and 150 metres**, with UE transmit power of **10 dBm**, offered load of **20 Mbps**, seed **42** and RNG run **1**.
-
-Each experiment saves its configuration, simulation results and CSV file. The three rows are combined into `batch_dataset.csv`, including throughput, goodput, delay, jitter and packet loss.
-
-## Setup
-
-Import the workflow JSON into n8n, assign your SSH credentials to the five SSH nodes, and replace `/ABSOLUTE/PATH/TO/ns-3.47` in the command nodes with your simulator directory. The simulation host needs a working ns-3/5G-LENA installation and a built scenario matching the Run simulation command.
-
-Keep the loop batch size at **1** and **Execute Once** enabled for Merge experiment CSVs. Start each batch from the manual trigger. The generator and merge command currently expect three experiments.
-
-## Supporting files
-
-- [Simulation source](simulation/default-nr-scenario.cc)
-- [Example configuration](simulation/dag.example.json)
-- [Pilot results](docs/results.md)
-- [Workflow export notes](docs/export-review.md)
-
-The current workflow generates simulation data. Connecting it to the repository's surrogate modelling scripts is a next step.
+| Node | What it does |
+| --- | --- |
+| When clicking ‘Execute workflow’ | Starts the workflow manually. |
+| Generate experiments | Creates the list of experiments and their input parameters. |
+| Loop Over Items | Processes one experiment at a time and finishes after all experiments have run. |
+| Edit Fields | Maps the current experiment's parameters to the fields used by the next nodes. |
+| Create configuration | Uses SSH to create the experiment folder and write its simulation configuration. |
+| Configuration succeeded | Checks the configuration command's exit code and routes failures to Stop and Error. |
+| Stop and Error | Stops the workflow if configuration creation fails. |
+| Run simulation | Runs ns-3/5G-LENA through SSH using the generated configuration. |
+| Simulation succeeded | Checks the simulation command's exit code and routes failures to Stop and Error1. |
+| Stop and Error1 | Stops the workflow if the simulation fails. |
+| Read results | Reads the simulation's JSON results through SSH. |
+| Prepare dataset row | Checks the results and combines input parameters and performance metrics into one dataset row. |
+| Convert to File | Converts the dataset row into a CSV file with column headers. |
+| Save CSV | Uploads the CSV to the experiment folder and returns to the loop for the next experiment. |
+| Merge experiment CSVs | Combines the individual experiment CSVs into batch_dataset.csv after the loop finishes. |
