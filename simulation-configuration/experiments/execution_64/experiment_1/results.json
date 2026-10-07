@@ -1,0 +1,69 @@
+{
+  "application": {
+    "goodput_over_app_window_mbps": 199.99952,
+    "rx_payload_bytes": 249999400
+  },
+  "derived": {
+    "distance_3d_m": 26.405491853021786,
+    "packet_interval_s": 5.6e-05
+  },
+  "flow_count": 1,
+  "flows": [
+    {
+      "ip_rx_bytes": 254999388,
+      "ip_throughput_over_app_window_mbps": 203.99951040000002,
+      "loss_fraction_after_drain": 0.0,
+      "mean_delay_ms": 3.63861224173018,
+      "mean_jitter_ms": 0.10029667845662765,
+      "rx_packets": 178571,
+      "tx_packets": 178571,
+      "unreceived_packets_after_drain": 0
+    }
+  ],
+  "mean": {
+    "end_to_end_delay_ms": 3.63861224173018,
+    "jitter_ms": 0.10029667845662765,
+    "loss_fraction": 0.0,
+    "loss_percent": 0.0,
+    "throughput_mbps": 203.99951040000002
+  },
+  "measurement_note": "Received counters include drain time; throughput/goodput denominator is app_stop_s-app_start_s. Unreceived packets may still be queued if drain is insufficient. Delay/jitter are IP-level for received packets. No UL SINR is reported from DL traces.",
+  "metric_definitions": {
+    "end_to_end_delay_ms": "Mean IP-level delay from UE transmission to cloud reception, for received packets.",
+    "jitter_ms": "FlowMonitor sum of absolute consecutive packet delay differences / (received packets - 1), in ms.",
+    "loss_fraction": "(Transmitted packets - received packets) / transmitted packets after drain; may include packets still queued.",
+    "loss_percent": "100 * loss_fraction.",
+    "throughput_mbps": "Received IP bytes * 8 / application window / 1e6; includes IP/UDP headers and packets received during drain.",
+    "undefined_metrics": "null when there are insufficient packets or no matching flow."
+  },
+  "parameters": {
+    "channel_bandwidth_hz": 100000000.0,
+    "data_rate_bps": 200000000,
+    "numerology": 2,
+    "packet_size_bytes": 1400,
+    "rlc_buffer_size_bytes": 1048576,
+    "tdd_pattern": "DL|UL|UL|UL|",
+    "ue_gnb_distance_2d_m": 25.0,
+    "ue_gnb_distance_3d_m": 26.405491853021786,
+    "ue_tx_power_dbm": 10.0
+  },
+  "scenario": {
+    "buildings": false,
+    "constant_nodes": true,
+    "environment": "open_space",
+    "fading_enabled": false,
+    "gnb_count": 1,
+    "link_condition": "LOS",
+    "link_condition_basis": "Assumed unobstructed free-space link; no LOS/NLOS condition model is installed.",
+    "mobility": false,
+    "mobility_model": "ConstantPositionMobilityModel",
+    "obstacles": false,
+    "open_space": true,
+    "pathloss_model": "Friis",
+    "protocol": "UDP",
+    "shadowing_enabled": false,
+    "traffic_direction": "UE -> gNB -> EPC -> cloud",
+    "traffic_model": "CBR",
+    "ue_count": 1
+  }
+}
