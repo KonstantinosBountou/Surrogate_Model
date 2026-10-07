@@ -1,0 +1,96 @@
+{
+  "gNB": [
+    {
+      "position": [
+        0.0,
+        0.0,
+        10.0
+      ],
+      "characteristics": {
+        "phy": {
+          "tx_power": "20",
+          "channel_bandwidth": 100000000,
+          "pattern": "DL|UL|UL|UL|",
+          "numerology": 2,
+          "noise_figure_db": 5.0
+        },
+        "mac": {
+          "scheduler_type": "TdmaRR",
+          "harq_enabled": true
+        },
+        "rlc": {
+          "mode": "UM",
+          "buffer_size_bytes": 1048576
+        }
+      }
+    }
+  ],
+  "cloud": {
+    "id": "cloud",
+    "position": [],
+    "services": [
+      {
+        "id": "main",
+        "port": 1234
+      }
+    ]
+  },
+  "ue": [
+    {
+      "id": "ue1",
+      "position": [
+        50.0,
+        0.0,
+        1.5
+      ],
+      "placement": {
+        "distance_2d_m": 50.0,
+        "height_m": 1.5,
+        "azimuth_deg": 0.0
+      },
+      "services": [],
+      "characteristics": {
+        "phy": {
+          "tx_power": "10",
+          "noise_figure_db": 7.0,
+          "uplink_power_control_enabled": false
+        }
+      }
+    }
+  ],
+  "connections": [
+    {
+      "from": "ue1",
+      "to": "cloud",
+      "characteristics": {
+        "application": {
+          "protocol": "UDP",
+          "traffic_model": "CBR",
+          "dataRate": "20Mbps",
+          "packetSize": 1400,
+          "point_to_service": "main"
+        }
+      }
+    }
+  ],
+  "simulation": {
+    "seed": 42,
+    "run": 1,
+    "app_start_s": 1.0,
+    "app_stop_s": 11.0,
+    "drain_time_s": 2.0
+  },
+  "channel": {
+    "pathloss_model": "Friis",
+    "shadowing_enabled": false,
+    "fading_enabled": false,
+    "carrier_frequency_hz": 3500000000
+  },
+  "core": {
+    "s1u_data_rate": "10Gbps",
+    "s1u_delay_ms": 0.0,
+    "cloud_data_rate": "100Gbps",
+    "cloud_delay_ms": 1.0,
+    "mtu_bytes": 2500
+  }
+}
