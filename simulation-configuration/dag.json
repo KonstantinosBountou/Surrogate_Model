@@ -7,6 +7,13 @@
         10.0
       ],
       "characteristics": {
+        "antenna": {
+          "model": "Cosine",
+          "max_gain_dbi": 0.0,
+          "orientation_deg": 0.0,
+          "horizontal_beamwidth_deg": 360.0,
+          "vertical_beamwidth_deg": 360.0
+        },
         "phy": {
           "tx_power": "20",
           "channel_bandwidth": 100000000,
