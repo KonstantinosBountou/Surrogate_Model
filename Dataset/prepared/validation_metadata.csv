@@ -1,0 +1,117 @@
+﻿record_id,study_id,coefficient_parameter,sample_weight,partition,rng_seed
+03c988527e9e9284,packet-interval/Σύνοψη δεδομένα,Packet Interval,4.0,validation,42
+04b22e7adf9adc74,carrier-frequency/Συχνότητα δεδομένα,Carrier Frequency,3.0,validation,42
+0770e5a306c3af04,RLC-mode/Μετρήσεις,RLC Mode (AM/UM),5.0,validation,42
+08b239d1f03a37a0,traffic-model/Μετρήσεις,Traffic Model,3.0,validation,42
+09eb03e42a8df522,carrier-frequency/Συχνότητα δεδομένα,Carrier Frequency,3.0,validation,42
+0a676736b5190610,traffic-model/Μετρήσεις,Traffic Model,3.0,validation,42
+0cf3d80fea6ea32a,RLC-mode/Μετρήσεις,RLC Mode (AM/UM),5.0,validation,42
+0ff6763e49ff4274,HARQ/HARQ OFF-ON δεδομένα,HARQ Max Retransmissions,4.0,validation,42
+110c60ea264b2415,antenna-configuration/Κέρδος δεδομένα,Antenna Configuration,3.0,validation,42
+11d2eb03448b1128,RLC_buffer_analysis/Raw data,RLC Buffer Size,5.0,validation,42
+11f94c7380033686,antenna-configuration/Κέρδος δεδομένα,Antenna Configuration,3.0,validation,42
+15c76a73e444933d,antenna-configuration/Προσανατολισμός δεδομένα,Antenna Configuration,3.0,validation,42
+16ab2987213d0e10,HARQ/HARQ OFF-ON δεδομένα,HARQ Max Retransmissions,4.0,validation,42
+18c87109e435324b,HARQ/HARQ OFF-ON δεδομένα,HARQ Max Retransmissions,4.0,validation,42
+198c5bd46898c479,carrier-frequency/Συχνότητα δεδομένα,Carrier Frequency,3.0,validation,42
+1a5cf86a538a4de7,HARQ/HARQ OFF-ON δεδομένα,HARQ Max Retransmissions,4.0,validation,42
+1c89fafd863d480f,scheduler-type/Μετρήσεις,Scheduler Type,2.0,validation,42
+23533616f460f3cc,UE_power_analysis/Raw data,UE Tx Power,5.0,validation,42
+24600805cc2c5e3b,Packet_size_analysis/Raw data,Packet Size,4.0,validation,42
+261db757d0a9d872,Packet_size_analysis/Raw data,Packet Size,4.0,validation,42
+2c2f2fe24e1d763a,Offered_traffic_analysis/Raw data,Offered Traffic Rate,5.0,validation,42
+2dba42f1e44235b0,RLC-mode/Μετρήσεις,RLC Mode (AM/UM),5.0,validation,42
+2e814eba4f52867a,packet-interval/Σύνοψη δεδομένα,Packet Interval,4.0,validation,42
+2eade0d160028248,antenna-configuration/Κέρδος δεδομένα,Antenna Configuration,3.0,validation,42
+2eb3abb1741d73f6,TDD_pattern_analysis/Raw data,TDD Pattern,5.0,validation,42
+2ed1b4eb64126709,RLC-mode/Μετρήσεις,RLC Mode (AM/UM),5.0,validation,42
+2f4ed3c08cf00c6a,Offered_traffic_analysis/Raw data,Offered Traffic Rate,5.0,validation,42
+34b30dbe5e6dd9c9,carrier-frequency/Συχνότητα δεδομένα,Carrier Frequency,3.0,validation,42
+36fdab356a9dc70d,carrier-frequency/Συχνότητα δεδομένα,Carrier Frequency,3.0,validation,42
+3770d84439ab607f,HARQ/HARQ processes δεδομένα,HARQ Processes,3.0,validation,42
+3afedec4bf73113d,scheduler-type/Μετρήσεις,Scheduler Type,2.0,validation,42
+3d930627e41dfd17,HARQ/HARQ processes δεδομένα,HARQ Processes,3.0,validation,42
+425dc8cc947e7e55,scheduler-type/Μετρήσεις,Scheduler Type,2.0,validation,42
+48307438de3df09c,antenna-configuration/Προσανατολισμός δεδομένα,Antenna Configuration,3.0,validation,42
+4dcbfeefcb84ed12,scheduler-type/Μετρήσεις,Scheduler Type,2.0,validation,42
+4e74cfbfec3ddff1,carrier-frequency/Συχνότητα δεδομένα,Carrier Frequency,3.0,validation,42
+50fb28cded473a70,Packet_size_analysis/Raw data,Packet Size,4.0,validation,42
+52f13fbbcfb9abcc,traffic-model/Μετρήσεις,Traffic Model,3.0,validation,42
+54902fd709cde04d,Distance_analysis/Raw data,UE–gNB Distance,5.0,validation,42
+56d21b99135c138e,carrier-frequency/Συχνότητα δεδομένα,Carrier Frequency,3.0,validation,42
+577372630abfa957,RLC_buffer_analysis/Raw data,RLC Buffer Size,5.0,validation,42
+58c8fa81e4db416d,carrier-frequency/Συχνότητα δεδομένα,Carrier Frequency,3.0,validation,42
+59fa63d5100e65e2,RLC_buffer_analysis/Raw data,RLC Buffer Size,5.0,validation,42
+5cca896927940226,antenna-configuration/Προσανατολισμός δεδομένα,Antenna Configuration,3.0,validation,42
+5dcd03a466b8c879,HARQ/HARQ OFF-ON δεδομένα,HARQ Max Retransmissions,4.0,validation,42
+fa5bd0f9d0e0b257,Numerology_analysis/Raw data,Numerology (μ),4.0,validation,42
+62c6f8253e24fb29,Offered_traffic_analysis/Raw data,Offered Traffic Rate,5.0,validation,42
+63a9fc4a758edea6,packet-interval/Σύνοψη δεδομένα,Packet Interval,4.0,validation,42
+6770eed7e6542be7,carrier-frequency/Συχνότητα δεδομένα,Carrier Frequency,3.0,validation,42
+6cb3b5756078ede8,antenna-configuration/Κέρδος δεδομένα,Antenna Configuration,3.0,validation,42
+71161b06c60c579f,carrier-frequency/Συχνότητα δεδομένα,Carrier Frequency,3.0,validation,42
+71207a163d2d7d4f,RLC_buffer_analysis/Raw data,RLC Buffer Size,5.0,validation,42
+76dd9f0403197cec,antenna-configuration/Προσανατολισμός δεδομένα,Antenna Configuration,3.0,validation,42
+7e1ebf971484e721,TDD_pattern_analysis/Raw data,TDD Pattern,5.0,validation,42
+10d773c4f103b908,Numerology_analysis/Raw data,Numerology (μ),4.0,validation,42
+8099b0ba5e78af57,scheduler-type/Μετρήσεις,Scheduler Type,2.0,validation,42
+82e01a6352095db2,HARQ/HARQ OFF-ON δεδομένα,HARQ Max Retransmissions,4.0,validation,42
+8419f65712e64f29,carrier-frequency/Συχνότητα δεδομένα,Carrier Frequency,3.0,validation,42
+847cd6d8fbaa2c86,HARQ/HARQ OFF-ON δεδομένα,HARQ Max Retransmissions,4.0,validation,42
+86ee0682bc9409fe,carrier-frequency/Συχνότητα δεδομένα,Carrier Frequency,3.0,validation,42
+875426c634142e7f,carrier-frequency/Συχνότητα δεδομένα,Carrier Frequency,3.0,validation,42
+b1e3116191d09aba,Numerology_analysis/Raw data,Numerology (μ),4.0,validation,42
+8c374370cb2be418,antenna-configuration/Προσανατολισμός δεδομένα,Antenna Configuration,3.0,validation,42
+8c5e611e4091a1be,HARQ/HARQ OFF-ON δεδομένα,HARQ Max Retransmissions,4.0,validation,42
+8e11fea531bad827,HARQ/HARQ OFF-ON δεδομένα,HARQ Max Retransmissions,4.0,validation,42
+90291b1665487c2b,antenna-configuration/Κέρδος δεδομένα,Antenna Configuration,3.0,validation,42
+f1e0bb3c61c25292,Numerology_analysis/Raw data,Numerology (μ),4.0,validation,42
+9636f21dd74e16fb,traffic-model/Μετρήσεις,Traffic Model,3.0,validation,42
+96e6e9ad854d6a1f,UE_power_analysis/Raw data,UE Tx Power,5.0,validation,42
+3a063a4d982e375d,Numerology_analysis/Raw data,Numerology (μ),4.0,validation,42
+9798cc251c519f55,TDD_pattern_analysis/Raw data,TDD Pattern,5.0,validation,42
+987126ffd4431752,carrier-frequency/Συχνότητα δεδομένα,Carrier Frequency,3.0,validation,42
+ad817e9b6eeb1a02,Numerology_analysis/Raw data,Numerology (μ),4.0,validation,42
+9c7ec52055f95272,RLC_buffer_analysis/Raw data,RLC Buffer Size,5.0,validation,42
+9d7b351cbc6ca4e7,Distance_analysis/Raw data,UE–gNB Distance,5.0,validation,42
+a138a754a9f79abf,RLC-mode/Μετρήσεις,RLC Mode (AM/UM),5.0,validation,42
+a2c39da907e8d506,Offered_traffic_analysis/Raw data,Offered Traffic Rate,5.0,validation,42
+a779bb73dcaa61d8,scheduler-type/Μετρήσεις,Scheduler Type,2.0,validation,42
+a9c9dee15cb80dfa,UE_power_analysis/Raw data,UE Tx Power,5.0,validation,42
+aa3b3a7b8a8fcac3,Bandwidth_analysis/Raw data,Channel Bandwidth,5.0,validation,42
+ab35709deb6be936,Bandwidth_analysis/Raw data,Channel Bandwidth,5.0,validation,42
+abc20a3a2f206e8a,packet-interval/Σύνοψη δεδομένα,Packet Interval,4.0,validation,42
+ac9fd0c91369436a,scheduler-type/Μετρήσεις,Scheduler Type,2.0,validation,42
+ad222e411c95864f,Bandwidth_analysis/Raw data,Channel Bandwidth,5.0,validation,42
+b0f24c75e345e076,carrier-frequency/Συχνότητα δεδομένα,Carrier Frequency,3.0,validation,42
+b1d52f717a95ae4f,UE_power_analysis/Raw data,UE Tx Power,5.0,validation,42
+b1ee3e7b56bd251f,TDD_pattern_analysis/Raw data,TDD Pattern,5.0,validation,42
+b34c2be92de78aa5,scheduler-type/Μετρήσεις,Scheduler Type,2.0,validation,42
+b438d068eb84a512,HARQ/HARQ processes δεδομένα,HARQ Processes,3.0,validation,42
+28784db0cd35fe6b,Numerology_analysis/Raw data,Numerology (μ),4.0,validation,42
+b4cea0a33ad8e650,Offered_traffic_analysis/Raw data,Offered Traffic Rate,5.0,validation,42
+b9fad3f1ac874aad,HARQ/HARQ processes δεδομένα,HARQ Processes,3.0,validation,42
+bc3013e28e68a615,Distance_analysis/Raw data,UE–gNB Distance,5.0,validation,42
+fd6c96313b99ad31,Numerology_analysis/Raw data,Numerology (μ),4.0,validation,42
+c4d55a2da6f407d9,UE_power_analysis/Raw data,UE Tx Power,5.0,validation,42
+c545aafae2fc91d2,scheduler-type/Μετρήσεις,Scheduler Type,2.0,validation,42
+c547ef2e300f6f23,packet-interval/Σύνοψη δεδομένα,Packet Interval,4.0,validation,42
+c8d7c983515196ac,Distance_analysis/Raw data,UE–gNB Distance,5.0,validation,42
+cdea5692bd5b7599,Offered_traffic_analysis/Raw data,Offered Traffic Rate,5.0,validation,42
+d05491e359ded62d,Bandwidth_analysis/Raw data,Channel Bandwidth,5.0,validation,42
+d0fd8b765d7e3af2,Bandwidth_analysis/Raw data,Channel Bandwidth,5.0,validation,42
+d2bbe7e7798308c4,UE_power_analysis/Raw data,UE Tx Power,5.0,validation,42
+d68d813455d8e6b0,HARQ/HARQ processes δεδομένα,HARQ Processes,3.0,validation,42
+d9d5d7a454b5f850,traffic-model/Μετρήσεις,Traffic Model,3.0,validation,42
+db9fa6947248b6df,UE_power_analysis/Raw data,UE Tx Power,5.0,validation,42
+dbb868a2cbef5fcb,UE_power_analysis/Raw data,UE Tx Power,5.0,validation,42
+e04c50347da2c062,Distance_analysis/Raw data,UE–gNB Distance,5.0,validation,42
+e24c8048a3a3bd3f,UE_power_analysis/Raw data,UE Tx Power,5.0,validation,42
+e35b67cc42b6b33c,Packet_size_analysis/Raw data,Packet Size,4.0,validation,42
+e96b3b06ae7fed6a,UE_power_analysis/Raw data,UE Tx Power,5.0,validation,42
+888b8d1489ffcc1a,Numerology_analysis/Raw data,Numerology (μ),4.0,validation,42
+ef1ef58616fb4bba,HARQ/HARQ OFF-ON δεδομένα,HARQ Max Retransmissions,4.0,validation,42
+fa8d6ecdccea2d8a,Packet_size_analysis/Raw data,Packet Size,4.0,validation,42
+7bd5a41ddb031e18,Numerology_analysis/Raw data,Numerology (μ),4.0,validation,42
+fffa001935045626,scheduler-type/Μετρήσεις,Scheduler Type,2.0,validation,42
+fffd980c5bacf160,TDD_pattern_analysis/Raw data,TDD Pattern,5.0,validation,42

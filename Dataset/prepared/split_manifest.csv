@@ -1,0 +1,405 @@
+record_id,study_id,split_group,partition
+010c8a8051814241,Offered_traffic_analysis/Raw data,188b8acdeae1500a,train
+012596b5e6d52a6f,UE_power_analysis/Raw data,b9bc9bace16b7495,train
+0171b42cc5a0de7c,antenna-configuration/Κέρδος δεδομένα,a6e59d1d66d80323,train
+0176b8ae8b0c6df4,scheduler-type/Μετρήσεις,945bb9d8a93c7bf0,train
+01b174f6961355eb,UE_power_analysis/Raw data,3114da8e0afd8c00,train
+01d2531c8366eae0,packet-interval/Σύνοψη δεδομένα,578e2adc96c0fe1f,train
+02b747e610d68bb8,Offered_traffic_analysis/Raw data,578e2adc96c0fe1f,train
+03a58498f0c72684,TDD_pattern_analysis/Raw data,5e49ea78b7b5ee4e,train
+03c988527e9e9284,packet-interval/Σύνοψη δεδομένα,fe7a711cebf38ced,validation
+0487a4fe60eecea3,Distance_analysis/Raw data,0c977e4a0c4316b3,train
+04b22e7adf9adc74,carrier-frequency/Συχνότητα δεδομένα,aca89805e2f11581,validation
+055a071b76540804,RLC_buffer_analysis/Raw data,c9cff3875c61e783,train
+056c71c4317c741b,antenna-configuration/Κέρδος δεδομένα,a6e59d1d66d80323,train
+0687c1ce6c434175,antenna-configuration/Προσανατολισμός δεδομένα,42e0330bde5bfc16,train
+072f3417fbcd644a,antenna-configuration/Κέρδος δεδομένα,a6e59d1d66d80323,train
+074272226bdee68c,Bandwidth_analysis/Raw data,92f89933220bf184,train
+0770e5a306c3af04,RLC-mode/Μετρήσεις,55ca7dd5308cc9f0,validation
+07c055a8189ead11,Bandwidth_analysis/Raw data,5d484dc1e75928bb,train
+07c40e4f753b5958,UE_power_analysis/Raw data,b9bc9bace16b7495,train
+0876b18a78cb8c08,Bandwidth_analysis/Raw data,8ca1476634adf59e,train
+08790f15be444e23,TDD_pattern_analysis/Raw data,5e49ea78b7b5ee4e,train
+08b239d1f03a37a0,traffic-model/Μετρήσεις,55ca7dd5308cc9f0,validation
+099cb3d5b0321027,scheduler-type/Μετρήσεις,68b176da8ee7df24,train
+09eb03e42a8df522,carrier-frequency/Συχνότητα δεδομένα,51e461ddd4604073,validation
+0a3fc196cd2e7daf,Offered_traffic_analysis/Raw data,754d524f0084b80c,train
+0a676736b5190610,traffic-model/Μετρήσεις,55ca7dd5308cc9f0,validation
+0a89f406135eaa67,UE_power_analysis/Raw data,b9bc9bace16b7495,train
+0ad62c0229dabb75,TDD_pattern_analysis/Raw data,363a79dff5c1a7b4,train
+0b6486fad7b4c477,Offered_traffic_analysis/Raw data,188b8acdeae1500a,train
+0b65c9b76aa096df,TDD_pattern_analysis/Raw data,363a79dff5c1a7b4,train
+0c25b9aa9cf05acc,TDD_pattern_analysis/Raw data,6d0b1c089afb1bed,train
+0cf3d80fea6ea32a,RLC-mode/Μετρήσεις,55ca7dd5308cc9f0,validation
+0e8429dd79c5416b,Packet_size_analysis/Raw data,5d5a8ed2bcc742c2,train
+0e98e11463d3699b,packet-interval/Σύνοψη δεδομένα,1df66bb9d3f4d9fb,train
+0eac00115e72c2e0,UE_power_analysis/Raw data,2dbcf41cca9e2928,train
+0ff6763e49ff4274,HARQ/HARQ OFF-ON δεδομένα,55ca7dd5308cc9f0,validation
+10e1dcaba17e0e59,packet-interval/Σύνοψη δεδομένα,aaba1121dc60219c,train
+110c60ea264b2415,antenna-configuration/Κέρδος δεδομένα,55ca7dd5308cc9f0,validation
+1110d95eb808c6e1,antenna-configuration/Κέρδος δεδομένα,a6e59d1d66d80323,train
+11d2eb03448b1128,RLC_buffer_analysis/Raw data,015f615d1a6869e8,validation
+11f94c7380033686,antenna-configuration/Κέρδος δεδομένα,55ca7dd5308cc9f0,validation
+127355d6432bc989,Distance_analysis/Raw data,c5c6382d51853466,train
+12d8e82b52acef4b,TDD_pattern_analysis/Raw data,d22bf7aa917ebc33,train
+14f45f872f45d877,UE_power_analysis/Raw data,3114da8e0afd8c00,train
+15c76a73e444933d,antenna-configuration/Προσανατολισμός δεδομένα,ebf0e9e9ac554276,validation
+166db9a0d577a415,TDD_pattern_analysis/Raw data,c00dccd50f8b6346,train
+16ab2987213d0e10,HARQ/HARQ OFF-ON δεδομένα,55ca7dd5308cc9f0,validation
+177c22cd0a84c835,traffic-model/Μετρήσεις,357043ae49c4fe4a,train
+18c87109e435324b,HARQ/HARQ OFF-ON δεδομένα,55ca7dd5308cc9f0,validation
+196e7c482ecb8a54,TDD_pattern_analysis/Raw data,d22bf7aa917ebc33,train
+198c5bd46898c479,carrier-frequency/Συχνότητα δεδομένα,51e461ddd4604073,validation
+1a5cf86a538a4de7,HARQ/HARQ OFF-ON δεδομένα,55ca7dd5308cc9f0,validation
+1c89fafd863d480f,scheduler-type/Μετρήσεις,55ca7dd5308cc9f0,validation
+1d575ac88d628a36,TDD_pattern_analysis/Raw data,b76826b12267849b,train
+1db707d7c0aeffa2,Distance_analysis/Raw data,c5c6382d51853466,train
+1ec1167ecc20a2d3,Offered_traffic_analysis/Raw data,9dd9bb5706a18ef7,train
+1f2627e4c5b11c0c,TDD_pattern_analysis/Raw data,b76826b12267849b,train
+218af71a0eea8ddf,HARQ/HARQ processes δεδομένα,67b8aaf9efb4c89e,train
+22fd551cb64b73c5,Offered_traffic_analysis/Raw data,7f2a7febb078dacf,train
+23533616f460f3cc,UE_power_analysis/Raw data,51e461ddd4604073,validation
+23735d2ee9a7b70e,Offered_traffic_analysis/Raw data,24e7b102dbbe3a13,train
+24600805cc2c5e3b,Packet_size_analysis/Raw data,7fada2e878329a80,validation
+25ea6eb02f290b7e,scheduler-type/Μετρήσεις,945bb9d8a93c7bf0,train
+261db757d0a9d872,Packet_size_analysis/Raw data,7fada2e878329a80,validation
+26c22bba1a64dd5f,scheduler-type/Μετρήσεις,945bb9d8a93c7bf0,train
+26e08e77380c6ca6,packet-interval/Σύνοψη δεδομένα,aa74dcb050b62d16,train
+27a00158d74bd7d2,antenna-configuration/Κέρδος δεδομένα,a6e59d1d66d80323,train
+28a5331a15085497,antenna-configuration/Προσανατολισμός δεδομένα,42e0330bde5bfc16,train
+5c3c4f14735e6955,Numerology_analysis/Raw data,3bc12702d5455650,train
+29b32977f049dd58,TDD_pattern_analysis/Raw data,67b05e0d84a60dc4,train
+2ba1d8df024f7f6f,traffic-model/Μετρήσεις,357043ae49c4fe4a,train
+2bdc7b34d28a10bf,TDD_pattern_analysis/Raw data,22b5e0008e601192,train
+2befc15769999963,Distance_analysis/Raw data,5122fcd921d2a345,train
+2c2f2fe24e1d763a,Offered_traffic_analysis/Raw data,015f615d1a6869e8,validation
+2dba42f1e44235b0,RLC-mode/Μετρήσεις,55ca7dd5308cc9f0,validation
+2e814eba4f52867a,packet-interval/Σύνοψη δεδομένα,fe7a711cebf38ced,validation
+2eade0d160028248,antenna-configuration/Κέρδος δεδομένα,55ca7dd5308cc9f0,validation
+2eb3abb1741d73f6,TDD_pattern_analysis/Raw data,1524ac87bf327e8e,validation
+2ed1b4eb64126709,RLC-mode/Μετρήσεις,55ca7dd5308cc9f0,validation
+2f4ed3c08cf00c6a,Offered_traffic_analysis/Raw data,015f615d1a6869e8,validation
+5d8b975b80ad8c15,Numerology_analysis/Raw data,3bc12702d5455650,train
+305e8819b9a75cc4,traffic-model/Μετρήσεις,8b34af6b0479257e,train
+310576b0d25812c9,Offered_traffic_analysis/Raw data,9dd9bb5706a18ef7,train
+317606e5cf254aee,antenna-configuration/Προσανατολισμός δεδομένα,96b1d9b240bb40b4,train
+317b120dcd345ddf,Packet_size_analysis/Raw data,5d5a8ed2bcc742c2,train
+31a4d4914bdab18c,packet-interval/Σύνοψη δεδομένα,aaba1121dc60219c,train
+32f2420c1ee59b8f,carrier-frequency/Συχνότητα δεδομένα,c2e364c4a11d4de6,train
+33f55b4ed10772cb,Offered_traffic_analysis/Raw data,9dd9bb5706a18ef7,train
+34b30dbe5e6dd9c9,carrier-frequency/Συχνότητα δεδομένα,51e461ddd4604073,validation
+34db67f84fd73111,Numerology_analysis/Raw data,3bc12702d5455650,train
+36163caa049fa7da,antenna-configuration/Προσανατολισμός δεδομένα,96b1d9b240bb40b4,train
+36b143eeb949733f,UE_power_analysis/Raw data,6d69cfe46f662d0e,train
+36cca57a57dc4626,packet-interval/Σύνοψη δεδομένα,578e2adc96c0fe1f,train
+36fdab356a9dc70d,carrier-frequency/Συχνότητα δεδομένα,aca89805e2f11581,validation
+3770d84439ab607f,HARQ/HARQ processes δεδομένα,958cc618aa356f19,validation
+3a03627fe230e7cb,TDD_pattern_analysis/Raw data,b76826b12267849b,train
+3a20918eb3761b03,packet-interval/Σύνοψη δεδομένα,1df66bb9d3f4d9fb,train
+3afedec4bf73113d,scheduler-type/Μετρήσεις,55ca7dd5308cc9f0,validation
+3c015c366a17c1a9,TDD_pattern_analysis/Raw data,2dbcf41cca9e2928,train
+3c35fe5e814e9a5c,TDD_pattern_analysis/Raw data,1b1d310efd6024ef,train
+3d04060bed0fbcf7,RLC_buffer_analysis/Raw data,b997eabb41392fd2,train
+3d930627e41dfd17,HARQ/HARQ processes δεδομένα,958cc618aa356f19,validation
+3ec834bfeee20313,scheduler-type/Μετρήσεις,945bb9d8a93c7bf0,train
+3fa9b792713f5563,TDD_pattern_analysis/Raw data,6d0b1c089afb1bed,train
+404194464f7178ed,Distance_analysis/Raw data,c5c6382d51853466,train
+4051a57ea159afee,TDD_pattern_analysis/Raw data,22b5e0008e601192,train
+40df6bdacd8c21c3,traffic-model/Μετρήσεις,8b34af6b0479257e,train
+41e1aa711dca8e90,scheduler-type/Μετρήσεις,945bb9d8a93c7bf0,train
+425dc8cc947e7e55,scheduler-type/Μετρήσεις,55ca7dd5308cc9f0,validation
+429e8c44154fd4e4,RLC_buffer_analysis/Raw data,8d6123117a841ee3,train
+42de85f216a990c7,antenna-configuration/Προσανατολισμός δεδομένα,96b1d9b240bb40b4,train
+43272a86b36422ec,Offered_traffic_analysis/Raw data,188b8acdeae1500a,train
+4343d10e6d54b3bf,antenna-configuration/Προσανατολισμός δεδομένα,ad119a574b7b234f,train
+447152688db9f396,UE_power_analysis/Raw data,3114da8e0afd8c00,train
+45c2d46a13aac744,scheduler-type/Μετρήσεις,945bb9d8a93c7bf0,train
+48307438de3df09c,antenna-configuration/Προσανατολισμός δεδομένα,ebf0e9e9ac554276,validation
+48aa5ca3c677e287,Offered_traffic_analysis/Raw data,7f2a7febb078dacf,train
+4b916fad86443163,Bandwidth_analysis/Raw data,5d484dc1e75928bb,train
+4bb707dd46848e62,HARQ/HARQ processes δεδομένα,67b8aaf9efb4c89e,train
+4d0432bf5a201483,UE_power_analysis/Raw data,6d69cfe46f662d0e,train
+4d4bf128f16ebdbe,antenna-configuration/Κέρδος δεδομένα,0cad34aa90c36ed5,train
+4dcbfeefcb84ed12,scheduler-type/Μετρήσεις,55ca7dd5308cc9f0,validation
+4e74cfbfec3ddff1,carrier-frequency/Συχνότητα δεδομένα,51e461ddd4604073,validation
+4f68721f04d563d3,TDD_pattern_analysis/Raw data,0f000cebf95dccef,train
+4ff1b79da660692c,scheduler-type/Μετρήσεις,945bb9d8a93c7bf0,train
+50fb28cded473a70,Packet_size_analysis/Raw data,7fada2e878329a80,validation
+51b8f1ef17caaf93,Distance_analysis/Raw data,5122fcd921d2a345,train
+52037d4c0e15a658,TDD_pattern_analysis/Raw data,d6009752ddb3c2be,train
+52f13fbbcfb9abcc,traffic-model/Μετρήσεις,55ca7dd5308cc9f0,validation
+53a5890a4db92b29,TDD_pattern_analysis/Raw data,d6009752ddb3c2be,train
+5470d646b345beef,traffic-model/Μετρήσεις,8b34af6b0479257e,train
+54902fd709cde04d,Distance_analysis/Raw data,51e461ddd4604073,validation
+54adaf85716c5beb,antenna-configuration/Προσανατολισμός δεδομένα,42e0330bde5bfc16,train
+54b5526dfc1addf6,packet-interval/Σύνοψη δεδομένα,1df66bb9d3f4d9fb,train
+5529917453d1a0dc,TDD_pattern_analysis/Raw data,6d0b1c089afb1bed,train
+55f75be1b83482ac,TDD_pattern_analysis/Raw data,7707f967a807972b,train
+56d21b99135c138e,carrier-frequency/Συχνότητα δεδομένα,51e461ddd4604073,validation
+577372630abfa957,RLC_buffer_analysis/Raw data,015f615d1a6869e8,validation
+589a5b535cddf06d,UE_power_analysis/Raw data,2dbcf41cca9e2928,train
+58c8fa81e4db416d,carrier-frequency/Συχνότητα δεδομένα,51e461ddd4604073,validation
+594cb0c407a88e11,RLC_buffer_analysis/Raw data,b9ab9808a536c94c,train
+597fcf9bd182c408,scheduler-type/Μετρήσεις,68b176da8ee7df24,train
+59fa63d5100e65e2,RLC_buffer_analysis/Raw data,015f615d1a6869e8,validation
+5a1bced09560b77d,TDD_pattern_analysis/Raw data,67b05e0d84a60dc4,train
+5cca896927940226,antenna-configuration/Προσανατολισμός δεδομένα,ebf0e9e9ac554276,validation
+5ccf5b6c06c7594a,scheduler-type/Μετρήσεις,945bb9d8a93c7bf0,train
+5cdb9e48fc3791e7,antenna-configuration/Κέρδος δεδομένα,a6e59d1d66d80323,train
+5dcd03a466b8c879,HARQ/HARQ OFF-ON δεδομένα,55ca7dd5308cc9f0,validation
+5defa0db2223d653,antenna-configuration/Κέρδος δεδομένα,a6e59d1d66d80323,train
+5e79a3ee2b97031d,TDD_pattern_analysis/Raw data,1b1d310efd6024ef,train
+5e86cf383f17cebe,TDD_pattern_analysis/Raw data,c00dccd50f8b6346,train
+5e9860d56806fa70,antenna-configuration/Κέρδος δεδομένα,0cad34aa90c36ed5,train
+5f41a89f0a9b5ab1,scheduler-type/Μετρήσεις,68b176da8ee7df24,train
+5f63525719f7d253,Distance_analysis/Raw data,5122fcd921d2a345,train
+606b7617d28e78a3,antenna-configuration/Προσανατολισμός δεδομένα,42e0330bde5bfc16,train
+fa5bd0f9d0e0b257,Numerology_analysis/Raw data,50e0a20140374137,validation
+62c6f8253e24fb29,Offered_traffic_analysis/Raw data,015f615d1a6869e8,validation
+63a9fc4a758edea6,packet-interval/Σύνοψη δεδομένα,fe7a711cebf38ced,validation
+64219a21a4aa96b3,antenna-configuration/Κέρδος δεδομένα,a6e59d1d66d80323,train
+643a2dcad249f790,antenna-configuration/Κέρδος δεδομένα,0cad34aa90c36ed5,train
+650050a835a97db5,packet-interval/Σύνοψη δεδομένα,578e2adc96c0fe1f,train
+654f3bbd17d1444f,Packet_size_analysis/Raw data,cbd2a326a71f734a,train
+66b605886c2ce6dc,antenna-configuration/Κέρδος δεδομένα,a6e59d1d66d80323,train
+66bd9fc33766711d,Bandwidth_analysis/Raw data,92f89933220bf184,train
+6770eed7e6542be7,carrier-frequency/Συχνότητα δεδομένα,51e461ddd4604073,validation
+69292abe3d1e0d2f,Offered_traffic_analysis/Raw data,5350ba3d7fb370a9,train
+6954ca6024f814e9,antenna-configuration/Κέρδος δεδομένα,a6e59d1d66d80323,train
+69b7d526d8f88af9,TDD_pattern_analysis/Raw data,22b5e0008e601192,train
+6a6a1e562a4c5c31,packet-interval/Σύνοψη δεδομένα,aaba1121dc60219c,train
+6b2e132b9e71f76b,carrier-frequency/Συχνότητα δεδομένα,c2e364c4a11d4de6,train
+353e4da99f89150d,Numerology_analysis/Raw data,3bc12702d5455650,train
+6be44d23b45d5515,carrier-frequency/Συχνότητα δεδομένα,2dbcf41cca9e2928,train
+6c6bed93c655ac8c,packet-interval/Σύνοψη δεδομένα,aaba1121dc60219c,train
+6c8ec69cd6a8441b,RLC-mode/Μετρήσεις,2a4cac3c48fcd1a5,train
+6c9392dbea50d64a,TDD_pattern_analysis/Raw data,0f000cebf95dccef,train
+6cb3b5756078ede8,antenna-configuration/Κέρδος δεδομένα,55ca7dd5308cc9f0,validation
+6d9a9f7401d7a74d,UE_power_analysis/Raw data,3114da8e0afd8c00,train
+6e1f7f5e758154d3,Offered_traffic_analysis/Raw data,188b8acdeae1500a,train
+6ee53ac75d2eb991,HARQ/HARQ processes δεδομένα,67b8aaf9efb4c89e,train
+6f78d12e90fe59f3,Offered_traffic_analysis/Raw data,754d524f0084b80c,train
+6ffaff58f71ca1fc,RLC-mode/Μετρήσεις,2a4cac3c48fcd1a5,train
+7108de0e30fd319e,antenna-configuration/Κέρδος δεδομένα,a6e59d1d66d80323,train
+71161b06c60c579f,carrier-frequency/Συχνότητα δεδομένα,51e461ddd4604073,validation
+71207a163d2d7d4f,RLC_buffer_analysis/Raw data,015f615d1a6869e8,validation
+717f5fa9751caf58,antenna-configuration/Κέρδος δεδομένα,0cad34aa90c36ed5,train
+71a38bbcd60685c0,Distance_analysis/Raw data,6d69cfe46f662d0e,train
+72538dca62526ef4,Bandwidth_analysis/Raw data,5d484dc1e75928bb,train
+7315b5a117e43a83,UE_power_analysis/Raw data,2dbcf41cca9e2928,train
+7397cd9fc6b981ef,packet-interval/Σύνοψη δεδομένα,aaba1121dc60219c,train
+73c01d7eaa88631b,Offered_traffic_analysis/Raw data,188b8acdeae1500a,train
+768e1444e3f0d518,TDD_pattern_analysis/Raw data,d22bf7aa917ebc33,train
+76dd9f0403197cec,antenna-configuration/Προσανατολισμός δεδομένα,ebf0e9e9ac554276,validation
+7847299d6eb3eb05,RLC_buffer_analysis/Raw data,b997eabb41392fd2,train
+7860f13d3f4f46a5,TDD_pattern_analysis/Raw data,1b1d310efd6024ef,train
+78f6adc838f217ef,scheduler-type/Μετρήσεις,945bb9d8a93c7bf0,train
+79072afc67d689b4,RLC-mode/Μετρήσεις,2a4cac3c48fcd1a5,train
+7a760f451bde4a49,HARQ/HARQ processes δεδομένα,5b7b7ef530f2a127,train
+7ae03b34bb357330,carrier-frequency/Συχνότητα δεδομένα,2dbcf41cca9e2928,train
+7c27fb9fe2dbbd2e,TDD_pattern_analysis/Raw data,2dbcf41cca9e2928,train
+7cef102acda7ff99,Offered_traffic_analysis/Raw data,9dd9bb5706a18ef7,train
+7ddf56464c973edf,antenna-configuration/Κέρδος δεδομένα,a6e59d1d66d80323,train
+7e1ebf971484e721,TDD_pattern_analysis/Raw data,1524ac87bf327e8e,validation
+7e29ed2d1831697d,carrier-frequency/Συχνότητα δεδομένα,2dbcf41cca9e2928,train
+7ee6ec6bdaa8f1fa,TDD_pattern_analysis/Raw data,7707f967a807972b,train
+10d773c4f103b908,Numerology_analysis/Raw data,55ca7dd5308cc9f0,validation
+805fec9d7d7aa749,RLC_buffer_analysis/Raw data,c9cff3875c61e783,train
+8099b0ba5e78af57,scheduler-type/Μετρήσεις,55ca7dd5308cc9f0,validation
+80cc124769a45eb2,UE_power_analysis/Raw data,b9bc9bace16b7495,train
+82e01a6352095db2,HARQ/HARQ OFF-ON δεδομένα,55ca7dd5308cc9f0,validation
+82ed3a3960721911,Distance_analysis/Raw data,0c977e4a0c4316b3,train
+839fa09d65c9cfb2,UE_power_analysis/Raw data,b9bc9bace16b7495,train
+83e7f4f9b4d5e2e3,antenna-configuration/Προσανατολισμός δεδομένα,ad119a574b7b234f,train
+8419f65712e64f29,carrier-frequency/Συχνότητα δεδομένα,aca89805e2f11581,validation
+847cd6d8fbaa2c86,HARQ/HARQ OFF-ON δεδομένα,55ca7dd5308cc9f0,validation
+84cd152cbf59a337,TDD_pattern_analysis/Raw data,d6009752ddb3c2be,train
+86718678410870b3,packet-interval/Σύνοψη δεδομένα,578e2adc96c0fe1f,train
+86949857f3c0b092,antenna-configuration/Προσανατολισμός δεδομένα,96b1d9b240bb40b4,train
+86ee0682bc9409fe,carrier-frequency/Συχνότητα δεδομένα,51e461ddd4604073,validation
+875426c634142e7f,carrier-frequency/Συχνότητα δεδομένα,51e461ddd4604073,validation
+886a63b025a7ae29,Offered_traffic_analysis/Raw data,7f2a7febb078dacf,train
+b1e3116191d09aba,Numerology_analysis/Raw data,55ca7dd5308cc9f0,validation
+8a808fb04a926f04,antenna-configuration/Κέρδος δεδομένα,0cad34aa90c36ed5,train
+8ad658692708281d,scheduler-type/Μετρήσεις,68b176da8ee7df24,train
+8b6729e57d2de83f,traffic-model/Μετρήσεις,8b34af6b0479257e,train
+8c374370cb2be418,antenna-configuration/Προσανατολισμός δεδομένα,ebf0e9e9ac554276,validation
+8c5e611e4091a1be,HARQ/HARQ OFF-ON δεδομένα,55ca7dd5308cc9f0,validation
+8cc3326021b8b474,TDD_pattern_analysis/Raw data,d6009752ddb3c2be,train
+8d00088c876ab9c6,TDD_pattern_analysis/Raw data,7707f967a807972b,train
+8d5fca3759a25b9c,TDD_pattern_analysis/Raw data,67b05e0d84a60dc4,train
+8d6fa8d39bf21523,TDD_pattern_analysis/Raw data,c00dccd50f8b6346,train
+8e11fea531bad827,HARQ/HARQ OFF-ON δεδομένα,55ca7dd5308cc9f0,validation
+8faa6f5d5b91747c,RLC-mode/Μετρήσεις,2a4cac3c48fcd1a5,train
+90291b1665487c2b,antenna-configuration/Κέρδος δεδομένα,55ca7dd5308cc9f0,validation
+f1e0bb3c61c25292,Numerology_analysis/Raw data,50e0a20140374137,validation
+91c51669a2f405b9,Offered_traffic_analysis/Raw data,dd1e8430a410c921,train
+91decde39b1df53d,Distance_analysis/Raw data,0c977e4a0c4316b3,train
+955ee2220c075cbf,traffic-model/Μετρήσεις,8b34af6b0479257e,train
+958d58fe08d30d6f,Packet_size_analysis/Raw data,cbd2a326a71f734a,train
+9636f21dd74e16fb,traffic-model/Μετρήσεις,55ca7dd5308cc9f0,validation
+96e6e9ad854d6a1f,UE_power_analysis/Raw data,51e461ddd4604073,validation
+3a063a4d982e375d,Numerology_analysis/Raw data,55ca7dd5308cc9f0,validation
+9798cc251c519f55,TDD_pattern_analysis/Raw data,1524ac87bf327e8e,validation
+97f1765685376368,Packet_size_analysis/Raw data,5d5a8ed2bcc742c2,train
+985c0190e235cb17,TDD_pattern_analysis/Raw data,6d0b1c089afb1bed,train
+987126ffd4431752,carrier-frequency/Συχνότητα δεδομένα,aca89805e2f11581,validation
+98a3182a71316e33,antenna-configuration/Προσανατολισμός δεδομένα,ad119a574b7b234f,train
+98cb8afbde7640fa,RLC_buffer_analysis/Raw data,c9cff3875c61e783,train
+ad817e9b6eeb1a02,Numerology_analysis/Raw data,50e0a20140374137,validation
+995c1facda360aec,Distance_analysis/Raw data,6d69cfe46f662d0e,train
+99e2a3b3763c98eb,RLC_buffer_analysis/Raw data,8d6123117a841ee3,train
+9aafe1d54ba87c30,Offered_traffic_analysis/Raw data,f6dd7b6ac500cac4,train
+9c4d90f92a615c1c,HARQ/HARQ processes δεδομένα,5b7b7ef530f2a127,train
+9c7ec52055f95272,RLC_buffer_analysis/Raw data,015f615d1a6869e8,validation
+9d0aed039ee73720,RLC-mode/Μετρήσεις,2a4cac3c48fcd1a5,train
+9d6c0af8e8c1b423,RLC_buffer_analysis/Raw data,b9ab9808a536c94c,train
+9d7b351cbc6ca4e7,Distance_analysis/Raw data,51e461ddd4604073,validation
+9ece7ac37af79769,UE_power_analysis/Raw data,6d69cfe46f662d0e,train
+9f8df9d86ed5332b,Offered_traffic_analysis/Raw data,d8f171b52214c612,train
+a138a754a9f79abf,RLC-mode/Μετρήσεις,55ca7dd5308cc9f0,validation
+a2c39da907e8d506,Offered_traffic_analysis/Raw data,a093ecd0e268ee8d,validation
+a2d8de005c7cbe4d,Offered_traffic_analysis/Raw data,754d524f0084b80c,train
+a56b5b3657df0f37,RLC_buffer_analysis/Raw data,b9ab9808a536c94c,train
+a6098503b0fb88d5,Distance_analysis/Raw data,5122fcd921d2a345,train
+a779bb73dcaa61d8,scheduler-type/Μετρήσεις,55ca7dd5308cc9f0,validation
+a7ec11193390606b,antenna-configuration/Προσανατολισμός δεδομένα,ad119a574b7b234f,train
+a859d5fe369a843d,packet-interval/Σύνοψη δεδομένα,aa74dcb050b62d16,train
+a94735f6784f4c00,HARQ/HARQ processes δεδομένα,5b7b7ef530f2a127,train
+a9c9dee15cb80dfa,UE_power_analysis/Raw data,51e461ddd4604073,validation
+a9d45d56d8fabe38,traffic-model/Μετρήσεις,357043ae49c4fe4a,train
+a9d887b9aa0b7172,UE_power_analysis/Raw data,2dbcf41cca9e2928,train
+a9f43c84181d3c7e,carrier-frequency/Συχνότητα δεδομένα,2dbcf41cca9e2928,train
+aa3b3a7b8a8fcac3,Bandwidth_analysis/Raw data,62770b419da4bf96,validation
+ab35709deb6be936,Bandwidth_analysis/Raw data,62770b419da4bf96,validation
+ab746415d0dbdf07,Bandwidth_analysis/Raw data,92f89933220bf184,train
+abc20a3a2f206e8a,packet-interval/Σύνοψη δεδομένα,fe7a711cebf38ced,validation
+ac7915b7567be8bd,Bandwidth_analysis/Raw data,5d484dc1e75928bb,train
+ac9fd0c91369436a,scheduler-type/Μετρήσεις,55ca7dd5308cc9f0,validation
+ad222e411c95864f,Bandwidth_analysis/Raw data,62770b419da4bf96,validation
+ae34408c6919ab6f,TDD_pattern_analysis/Raw data,6d0b1c089afb1bed,train
+ae3c65ca15e6924a,traffic-model/Μετρήσεις,357043ae49c4fe4a,train
+aeb6980c669a1d1b,Offered_traffic_analysis/Raw data,754d524f0084b80c,train
+aef3a5a3da651063,packet-interval/Σύνοψη δεδομένα,1df66bb9d3f4d9fb,train
+af17aeead930204e,Offered_traffic_analysis/Raw data,7f2a7febb078dacf,train
+b055d78a9df626f3,HARQ/HARQ processes δεδομένα,5b7b7ef530f2a127,train
+b0f24c75e345e076,carrier-frequency/Συχνότητα δεδομένα,aca89805e2f11581,validation
+b10845f1d725913b,RLC_buffer_analysis/Raw data,8d6123117a841ee3,train
+b1d52f717a95ae4f,UE_power_analysis/Raw data,51e461ddd4604073,validation
+b1ee3e7b56bd251f,TDD_pattern_analysis/Raw data,1524ac87bf327e8e,validation
+b2892309e395ec27,TDD_pattern_analysis/Raw data,2dbcf41cca9e2928,train
+b34c2be92de78aa5,scheduler-type/Μετρήσεις,55ca7dd5308cc9f0,validation
+b438d068eb84a512,HARQ/HARQ processes δεδομένα,958cc618aa356f19,validation
+28784db0cd35fe6b,Numerology_analysis/Raw data,55ca7dd5308cc9f0,validation
+b4cea0a33ad8e650,Offered_traffic_analysis/Raw data,015f615d1a6869e8,validation
+b4e20a165d500651,TDD_pattern_analysis/Raw data,0f000cebf95dccef,train
+b5b602a754f540b0,packet-interval/Σύνοψη δεδομένα,1df66bb9d3f4d9fb,train
+b69f15c7ae7665e1,TDD_pattern_analysis/Raw data,22b5e0008e601192,train
+b84c35b803383474,TDD_pattern_analysis/Raw data,b76826b12267849b,train
+b8f906375c009237,HARQ/HARQ processes δεδομένα,67b8aaf9efb4c89e,train
+b9fad3f1ac874aad,HARQ/HARQ processes δεδομένα,958cc618aa356f19,validation
+bc00f350ef9ceb9d,Offered_traffic_analysis/Raw data,9dd9bb5706a18ef7,train
+bc2322dab7e83f3a,Bandwidth_analysis/Raw data,8ca1476634adf59e,train
+bc3013e28e68a615,Distance_analysis/Raw data,51e461ddd4604073,validation
+fd6c96313b99ad31,Numerology_analysis/Raw data,50e0a20140374137,validation
+be46ee7ab7f62060,Distance_analysis/Raw data,c5c6382d51853466,train
+bfe6975ef629996e,TDD_pattern_analysis/Raw data,5e49ea78b7b5ee4e,train
+c0c10df06c12db15,RLC_buffer_analysis/Raw data,8d6123117a841ee3,train
+c1bb4add341a40bd,packet-interval/Σύνοψη δεδομένα,aa74dcb050b62d16,train
+c1f19efca8f8f256,UE_power_analysis/Raw data,6d69cfe46f662d0e,train
+c2d9fd11183601a7,TDD_pattern_analysis/Raw data,5e49ea78b7b5ee4e,train
+c4bdea21863376f9,TDD_pattern_analysis/Raw data,d22bf7aa917ebc33,train
+c4d55a2da6f407d9,UE_power_analysis/Raw data,51e461ddd4604073,validation
+c545aafae2fc91d2,scheduler-type/Μετρήσεις,55ca7dd5308cc9f0,validation
+c547ef2e300f6f23,packet-interval/Σύνοψη δεδομένα,fe7a711cebf38ced,validation
+c7268bb654e8b3ff,Bandwidth_analysis/Raw data,92f89933220bf184,train
+c800e472b8d1bd39,TDD_pattern_analysis/Raw data,0f000cebf95dccef,train
+c8d7c983515196ac,Distance_analysis/Raw data,51e461ddd4604073,validation
+c92128e13c52ad87,TDD_pattern_analysis/Raw data,5e49ea78b7b5ee4e,train
+c9c9ff06436aea9a,TDD_pattern_analysis/Raw data,0f000cebf95dccef,train
+c9d1ee19e84ebe79,Packet_size_analysis/Raw data,5d5a8ed2bcc742c2,train
+cb6fd7e4c731eac8,carrier-frequency/Συχνότητα δεδομένα,c2e364c4a11d4de6,train
+cc244d83c37ce1aa,TDD_pattern_analysis/Raw data,b76826b12267849b,train
+cc64abef18cc94d4,RLC_buffer_analysis/Raw data,c9cff3875c61e783,train
+ccba8c532c6d9d98,TDD_pattern_analysis/Raw data,22b5e0008e601192,train
+cd9fc166056c45ba,scheduler-type/Μετρήσεις,945bb9d8a93c7bf0,train
+cdb4c7b5a3233b29,TDD_pattern_analysis/Raw data,2dbcf41cca9e2928,train
+cdce2c08d42f6fca,Packet_size_analysis/Raw data,cbd2a326a71f734a,train
+cdea5692bd5b7599,Offered_traffic_analysis/Raw data,015f615d1a6869e8,validation
+ce6d32f090300c0f,traffic-model/Μετρήσεις,357043ae49c4fe4a,train
+cf5d553ac9ccc599,carrier-frequency/Συχνότητα δεδομένα,c2e364c4a11d4de6,train
+cf8e0eaa2407d3bb,Distance_analysis/Raw data,6d69cfe46f662d0e,train
+d01b3b2793fcc19d,antenna-configuration/Προσανατολισμός δεδομένα,42e0330bde5bfc16,train
+d05491e359ded62d,Bandwidth_analysis/Raw data,62770b419da4bf96,validation
+d0fd8b765d7e3af2,Bandwidth_analysis/Raw data,62770b419da4bf96,validation
+d1154240bf1ff65d,Distance_analysis/Raw data,c5c6382d51853466,train
+d2482f47fca984d7,packet-interval/Σύνοψη δεδομένα,aa74dcb050b62d16,train
+d2bbe7e7798308c4,UE_power_analysis/Raw data,51e461ddd4604073,validation
+d3ac4a78926f2972,HARQ/HARQ processes δεδομένα,67b8aaf9efb4c89e,train
+d3bbf9c13d6d5ca9,TDD_pattern_analysis/Raw data,1b1d310efd6024ef,train
+5a72c6ad15a237d2,Numerology_analysis/Raw data,3bc12702d5455650,train
+d4e0a80d544de62c,Packet_size_analysis/Raw data,5d5a8ed2bcc742c2,train
+d55536cbee7dece5,RLC_buffer_analysis/Raw data,c9cff3875c61e783,train
+d5d55affe68c61e3,TDD_pattern_analysis/Raw data,d6009752ddb3c2be,train
+d6305d2f2cf42fd3,RLC_buffer_analysis/Raw data,8d6123117a841ee3,train
+d6559c3b8e41efb5,antenna-configuration/Κέρδος δεδομένα,a6e59d1d66d80323,train
+d6722e7ee0bcde6f,Packet_size_analysis/Raw data,cbd2a326a71f734a,train
+d68d813455d8e6b0,HARQ/HARQ processes δεδομένα,958cc618aa356f19,validation
+d78369cd5489c94b,Bandwidth_analysis/Raw data,8ca1476634adf59e,train
+d7b3650ee69ff186,antenna-configuration/Προσανατολισμός δεδομένα,ad119a574b7b234f,train
+d870599a65c18ae5,Distance_analysis/Raw data,6d69cfe46f662d0e,train
+d980d32f35ada2f5,RLC_buffer_analysis/Raw data,b997eabb41392fd2,train
+d9d5d7a454b5f850,traffic-model/Μετρήσεις,55ca7dd5308cc9f0,validation
+da4f7b6008df9f9c,TDD_pattern_analysis/Raw data,363a79dff5c1a7b4,train
+dac96cebc9917525,Bandwidth_analysis/Raw data,5d484dc1e75928bb,train
+db9fa6947248b6df,UE_power_analysis/Raw data,51e461ddd4604073,validation
+dbb868a2cbef5fcb,UE_power_analysis/Raw data,51e461ddd4604073,validation
+dcfb2556005dc0d1,antenna-configuration/Προσανατολισμός δεδομένα,96b1d9b240bb40b4,train
+dd5f9f7971c3218f,Offered_traffic_analysis/Raw data,754d524f0084b80c,train
+e04c50347da2c062,Distance_analysis/Raw data,51e461ddd4604073,validation
+e09779e273cde0df,antenna-configuration/Κέρδος δεδομένα,a6e59d1d66d80323,train
+e179443278db133b,UE_power_analysis/Raw data,6d69cfe46f662d0e,train
+e24c8048a3a3bd3f,UE_power_analysis/Raw data,51e461ddd4604073,validation
+e2ba73c12d5645ab,TDD_pattern_analysis/Raw data,7707f967a807972b,train
+e2de5f2f66ec38af,Bandwidth_analysis/Raw data,92f89933220bf184,train
+e2ed460ab0b1dae7,Bandwidth_analysis/Raw data,8ca1476634adf59e,train
+e319417ce036ce0e,Distance_analysis/Raw data,0c977e4a0c4316b3,train
+e35b67cc42b6b33c,Packet_size_analysis/Raw data,7fada2e878329a80,validation
+e517b9ae16b92ff8,TDD_pattern_analysis/Raw data,67b05e0d84a60dc4,train
+e53dc3b474646347,RLC_buffer_analysis/Raw data,b997eabb41392fd2,train
+e5657cae70208824,Distance_analysis/Raw data,6d69cfe46f662d0e,train
+e652cf4978d5a4c5,Bandwidth_analysis/Raw data,8ca1476634adf59e,train
+e840b33d2e6872c7,packet-interval/Σύνοψη δεδομένα,578e2adc96c0fe1f,train
+e96b3b06ae7fed6a,UE_power_analysis/Raw data,51e461ddd4604073,validation
+e98a3a855068f067,TDD_pattern_analysis/Raw data,363a79dff5c1a7b4,train
+e9a50b160b01f926,RLC_buffer_analysis/Raw data,b997eabb41392fd2,train
+888b8d1489ffcc1a,Numerology_analysis/Raw data,50e0a20140374137,validation
+ed99241018ff5e8c,TDD_pattern_analysis/Raw data,67b05e0d84a60dc4,train
+edb75b52c4a54e95,TDD_pattern_analysis/Raw data,7707f967a807972b,train
+ee4d0017d26a1337,scheduler-type/Μετρήσεις,68b176da8ee7df24,train
+eebbfc27d7d92efc,TDD_pattern_analysis/Raw data,c00dccd50f8b6346,train
+eee2cc6155afdee2,Offered_traffic_analysis/Raw data,7f2a7febb078dacf,train
+ef1ef58616fb4bba,HARQ/HARQ OFF-ON δεδομένα,55ca7dd5308cc9f0,validation
+f28e68962f6bfc9a,Offered_traffic_analysis/Raw data,9f8aac20e003ba34,train
+f2994e30d826d4ad,HARQ/HARQ processes δεδομένα,5b7b7ef530f2a127,train
+f2bf01eed1196549,UE_power_analysis/Raw data,3114da8e0afd8c00,train
+f386235227a8fdc4,packet-interval/Σύνοψη δεδομένα,aa74dcb050b62d16,train
+f3d27aee9e33fb60,TDD_pattern_analysis/Raw data,c00dccd50f8b6346,train
+f3e020cd9ca97a31,RLC_buffer_analysis/Raw data,b9ab9808a536c94c,train
+f56177c5755c694e,TDD_pattern_analysis/Raw data,2dbcf41cca9e2928,train
+f5ebb5b5d59dcfa5,Offered_traffic_analysis/Raw data,942671519a2e2ed2,train
+f68da96c822ecfe3,TDD_pattern_analysis/Raw data,1b1d310efd6024ef,train
+f82a150fef96d5c1,antenna-configuration/Κέρδος δεδομένα,a6e59d1d66d80323,train
+f86db834352c1dc2,TDD_pattern_analysis/Raw data,363a79dff5c1a7b4,train
+fa211978525b0292,Distance_analysis/Raw data,5122fcd921d2a345,train
+fa8d6ecdccea2d8a,Packet_size_analysis/Raw data,7fada2e878329a80,validation
+fad5d826aa4a0155,carrier-frequency/Συχνότητα δεδομένα,2dbcf41cca9e2928,train
+7bd5a41ddb031e18,Numerology_analysis/Raw data,55ca7dd5308cc9f0,validation
+fc04981b3f6d5a02,TDD_pattern_analysis/Raw data,d22bf7aa917ebc33,train
+fc3fa3e6e74075b1,Distance_analysis/Raw data,0c977e4a0c4316b3,train
+fdf661edfd821938,UE_power_analysis/Raw data,2dbcf41cca9e2928,train
+fe347eb3677a18e0,carrier-frequency/Συχνότητα δεδομένα,c2e364c4a11d4de6,train
+ff8adda472e17999,Packet_size_analysis/Raw data,cbd2a326a71f734a,train
+ffdd105edb29eb25,RLC_buffer_analysis/Raw data,b9ab9808a536c94c,train
+fffa001935045626,scheduler-type/Μετρήσεις,55ca7dd5308cc9f0,validation
+fffd980c5bacf160,TDD_pattern_analysis/Raw data,1524ac87bf327e8e,validation

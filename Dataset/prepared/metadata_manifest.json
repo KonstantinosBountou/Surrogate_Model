@@ -1,0 +1,17 @@
+{
+  "dataset": {
+    "rows": 404,
+    "data_sha256": "a027a5a09bc86f3cb18a75a7eac219ba6e53205cf5483f2f2e69cb0c1fb47ce9",
+    "metadata_sha256": "991823a41c9f5f0095c44c92b6aa41a7a58f3210bdbdc06a02dd61d9cdba256f"
+  },
+  "train": {
+    "rows": 288,
+    "data_sha256": "65c3464751e845cd280e676219538f3fc90c525e35bca0b059ddd2d7a0af6120",
+    "metadata_sha256": "a9eee84b5c0f6b67874ebebfe2e98721a2a08e127cf0d1b474e18c17b126a355"
+  },
+  "validation": {
+    "rows": 116,
+    "data_sha256": "4a696586c9b975ffc7ad1dd070c8bfb7a3e46235d9e1463d4da1c99d70d2f3a8",
+    "metadata_sha256": "e125450fe8adc4a068741b406ad8f0373b55a11ab3719ef125469db9d32ccba7"
+  }
+}

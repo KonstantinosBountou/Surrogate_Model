@@ -1,0 +1,2 @@
+# Preserve CSV bytes across platforms: metadata_manifest.json hashes these files.
+*.csv -text

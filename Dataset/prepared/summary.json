@@ -1,0 +1,20 @@
+{
+  "rows": 404,
+  "groups": 69,
+  "previous_split_crossing_groups": 1,
+  "partition_counts": {
+    "train": 288,
+    "validation": 116
+  },
+  "dataset_sha256": "b9089dc409508f6905123643af8d8e592c9207acc6ef2c654e02ed774f0cfad3",
+  "coefficients_sha256": "5fcdd33d78e75bac7f5c08b8c5c1e1d016231446f85f4106ad5e94d4bf86af86",
+  "weighting": "coefficient per row; no study-size normalization",
+  "harq_on_off_mapping": "HARQ Max Retransmissions score 4; ON/OFF is the switch controlling 3 vs 0 retransmissions",
+  "scope": "Exploratory; assumed defaults and previously inspected observations",
+  "split_method": "Preserve previous covered group split when valid; otherwise optimize study coverage without targets",
+  "training_studies_absent": [
+    "HARQ/HARQ OFF-ON \u03b4\u03b5\u03b4\u03bf\u03bc\u03ad\u03bd\u03b1"
+  ],
+  "solver_status": 0,
+  "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)"
+}

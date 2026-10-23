@@ -1,0 +1,18 @@
+study_id,coefficient_parameter,rows,weight_per_row,total_weight
+Bandwidth_analysis/Raw data,Channel Bandwidth,20,5.0,100.0
+Distance_analysis/Raw data,UE–gNB Distance,25,5.0,125.0
+HARQ/HARQ OFF-ON δεδομένα,HARQ Max Retransmissions,10,4.0,40.0
+HARQ/HARQ processes δεδομένα,HARQ Processes,15,3.0,45.0
+Numerology_analysis/Raw data,Numerology (μ),15,4.0,60.0
+Offered_traffic_analysis/Raw data,Offered Traffic Rate,34,5.0,170.0
+Packet_size_analysis/Raw data,Packet Size,15,4.0,60.0
+RLC-mode/Μετρήσεις,RLC Mode (AM/UM),10,5.0,50.0
+RLC_buffer_analysis/Raw data,RLC Buffer Size,25,5.0,125.0
+TDD_pattern_analysis/Raw data,TDD Pattern,70,5.0,350.0
+UE_power_analysis/Raw data,UE Tx Power,30,5.0,150.0
+antenna-configuration/Κέρδος δεδομένα,Antenna Configuration,25,3.0,75.0
+antenna-configuration/Προσανατολισμός δεδομένα,Antenna Configuration,20,3.0,60.0
+carrier-frequency/Συχνότητα δεδομένα,Carrier Frequency,25,3.0,75.0
+packet-interval/Σύνοψη δεδομένα,Packet Interval,25,4.0,100.0
+scheduler-type/Μετρήσεις,Scheduler Type,25,2.0,50.0
+traffic-model/Μετρήσεις,Traffic Model,15,3.0,45.0

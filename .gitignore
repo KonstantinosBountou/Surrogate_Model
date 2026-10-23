@@ -3,3 +3,6 @@
 *.png
 __pycache__/
 *.pyc
+
+# Version the requested dataset CSV files.
+!Dataset/**/*.csv

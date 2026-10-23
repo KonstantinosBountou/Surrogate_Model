@@ -1,0 +1,34 @@
+{
+  "numeric": [
+    "ue_distance_2d_m",
+    "ue_tx_power_dbm",
+    "offered_load_mbps",
+    "bandwidth_hz",
+    "numerology",
+    "packet_size_bytes",
+    "rlc_buffer_size_bytes",
+    "carrier_frequency_hz",
+    "gnb_antenna_max_gain_dbi",
+    "gnb_antenna_orientation_deg",
+    "harq_max_retransmissions",
+    "harq_processes",
+    "packet_interval_us",
+    "on_data_rate_bps",
+    "nominal_duty_cycle"
+  ],
+  "categorical": [
+    "tdd_pattern",
+    "scheduler_type",
+    "rlc_mode",
+    "harq_enabled",
+    "gnb_antenna_model",
+    "traffic_model",
+    "traffic_input_mode"
+  ],
+  "targets": [
+    "throughput_mbps",
+    "delay_ms",
+    "jitter_ms",
+    "packet_loss_pct"
+  ]
+}

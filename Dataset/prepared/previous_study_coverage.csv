@@ -1,0 +1,18 @@
+study_id,train,validation
+Bandwidth_analysis/Raw data,15,5
+Distance_analysis/Raw data,10,15
+HARQ/HARQ OFF-ON δεδομένα,0,10
+HARQ/HARQ processes δεδομένα,10,5
+Numerology_analysis/Raw data,10,5
+Offered_traffic_analysis/Raw data,33,1
+Packet_size_analysis/Raw data,10,5
+RLC-mode/Μετρήσεις,5,5
+RLC_buffer_analysis/Raw data,20,5
+TDD_pattern_analysis/Raw data,65,5
+UE_power_analysis/Raw data,20,10
+antenna-configuration/Κέρδος δεδομένα,20,5
+antenna-configuration/Προσανατολισμός δεδομένα,15,5
+carrier-frequency/Συχνότητα δεδομένα,10,15
+packet-interval/Σύνοψη δεδομένα,20,5
+scheduler-type/Μετρήσεις,15,10
+traffic-model/Μετρήσεις,10,5
