@@ -10,9 +10,7 @@ This folder contains the base data and preparation scripts. It does not train mo
 | `dataset1_metadata.csv` | 10 fields: `csv_row`, `record_id`, `rng_seed`, `configuration_id`, `split_group`, `partition`, `study_id`, `rng_run`, `config_path`, `results_path`. |
 | `sources/impact_coefficients.xlsx` | The only file in `sources`. Provides coefficients from the `Metrics` worksheet. |
 
-Measurements and provenance are read exclusively from the two base CSV files. The workflow does not read `original_dataset.csv`, `row_mapping.csv`, `default_assumptions.csv`, or `verified_run_provenance.csv`. It does not fill new defaults or compare values against historical sources.
-
-Historical sources are not required and are not included in this folder. Previously filled default values remain assumptions about historical simulation settings.
+Measurements and provenance are read exclusively from the two base CSV files.
 
 ## Workflow sequence
 
