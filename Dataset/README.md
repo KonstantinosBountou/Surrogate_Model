@@ -1,90 +1,65 @@
-# Dataset και προετοιμασία βαρών
+# Dataset and sample weight preparation
 
-Ο φάκελος Dataset είναι το αντίγραφο του τοπικού φακέλου data. Περιέχει τα βασικά δεδομένα και τα scripts προετοιμασίας. Δεν εκτελεί εκπαίδευση μοντέλου ούτε παράγει προβλέψεις.
+This folder contains the base data and preparation scripts. It does not train models or generate predictions.
 
-## Βασικές πηγές
+## Base sources
 
-| Αρχείο | Ρόλος |
+| File | Purpose |
 |---|---|
-| dataset1.csv | 404 μετρήσεις με 26 στήλες: 22 είσοδοι και 4 στόχοι. |
-| dataset1_metadata.csv | 10 πεδία: csv_row, record_id, rng_seed, configuration_id, split_group, partition, study_id, rng_run, config_path, results_path. |
-| sources/impact_coefficients.xlsx | Μοναδικό αρχείο στον sources. Πηγή coefficients από το φύλλο Metrics. |
+| `dataset1.csv` | 404 observations with 26 columns: 22 input features and 4 targets. |
+| `dataset1_metadata.csv` | 10 fields: `csv_row`, `record_id`, `rng_seed`, `configuration_id`, `split_group`, `partition`, `study_id`, `rng_run`, `config_path`, `results_path`. |
+| `sources/impact_coefficients.xlsx` | The only file in `sources`. Provides coefficients from the `Metrics` worksheet. |
 
-Οι μετρήσεις και η προέλευσή τους διαβάζονται αποκλειστικά από τα δύο βασικά CSV. Δεν διαβάζονται original_dataset.csv, row_mapping.csv, default_assumptions.csv ή verified_run_provenance.csv. Δεν συμπληρώνονται νέα defaults ούτε γίνεται σύγκριση των τιμών με τις ιστορικές πηγές.
+Measurements and provenance are read exclusively from the two base CSV files. The workflow does not read `original_dataset.csv`, `row_mapping.csv`, `default_assumptions.csv`, or `verified_run_provenance.csv`. It does not fill new defaults or compare values against historical sources.
 
-Οι παλιές πηγές δεν απαιτούνται και δεν περιλαμβάνονται σε αυτόν τον φάκελο. Οι υπάρχουσες συμπληρώσεις defaults στο dataset παραμένουν υποθέσεις για τις ιστορικές ρυθμίσεις.
+Historical sources are not required and are not included in this folder. Previously filled default values remain assumptions about historical simulation settings.
 
-## Σειρά εκτέλεσης
+## Workflow sequence
 
-1. **prepare_weights.py**: ελέγχει αντιστοίχιση γραμμών, μοναδικά IDs, πληρότητα και τύπους. Χρησιμοποιεί το study_id για να αποδώσει το βάρος από το Excel. Διατηρεί τις ομάδες των metadata και συγχωνεύει ομάδες με ίδιες εισόδους. Γράφει ενδιάμεσα δεδομένα, schema και αναφορές.
-2. **resplit_for_coverage.py**: καλείται αυτόματα. Διατηρεί τον διαχωρισμό αν καμία ομάδα δεν μοιράζεται σε train/validation και όλες οι μελέτες υπάρχουν στο validation. Αλλιώς υπολογίζει νέο διαχωρισμό ολόκληρων ομάδων, με στόχο περίπου 116 γραμμές validation και παρουσία στο train όπου υπάρχουν τουλάχιστον δύο ομάδες ανά μελέτη. Δεν χρησιμοποιεί στόχους ή επιδόσεις μοντέλου για την επιλογή του split.
-3. **export_metadata.py**: καλείται αυτόματα. Χωρίζει τα βοηθητικά πεδία από τις μετρήσεις, γράφει hashes και ενημερώνει τα split_group και partition στο dataset1_metadata.csv, διατηρώντας τα υπόλοιπα πεδία του.
+1. **`prepare_weights.py`** checks row alignment, unique IDs, completeness, and data types. It uses `study_id` to assign coefficients from the Excel workbook. It preserves existing metadata groups and merges groups with identical input features. It writes intermediate data, the schema, and reports.
+2. **`resplit_for_coverage.py`** is called automatically. It preserves the split if no group spans both training and validation and every study is represented in validation. Otherwise, it assigns whole groups to partitions, targeting approximately 116 validation rows and training coverage where a study has at least two groups. Target values and model performance are not used to select the split.
+3. **`export_metadata.py`** is called automatically. It separates auxiliary fields from measurements, records file hashes, and updates `split_group` and `partition` in `dataset1_metadata.csv` while preserving its other fields.
 
-Εκτελούμε μόνο το πρώτο script. Τα υπόλοιπα χρειάζονται τα ενδιάμεσα αρχεία που παράγονται με αυτή τη σειρά.
+The first script is the entry point. The other scripts depend on intermediate files generated in this order.
 
-## Βάρη
+## Sample weights
 
-Κάθε γραμμή παίρνει ως sample_weight τον coefficient της μελέτης της. Δεν αντιγράφονται γραμμές, δεν πολλαπλασιάζονται είσοδοι ή στόχοι και δεν γίνεται κανονικοποίηση ως προς το πλήθος μετρήσεων της μελέτης.
+Each observation receives its study coefficient as `sample_weight`. Rows are not duplicated, inputs and targets are not multiplied, and weights are not normalized by the number of observations in a study.
 
-Τα βάρη αποθηκεύονται στα metadata του prepared και περνούν αργότερα στο fit της σταθμισμένης εκπαίδευσης. Δεν είναι χαρακτηριστικά πρόβλεψης. Οι coefficients εκφράζουν προτεραιότητες, όχι αποδεδειγμένη αιτιώδη σημασία.
+Weights are stored in the metadata files under `prepared` and can subsequently be passed to the model's `fit` method during weighted training. They are not prediction features. The coefficients express priorities, not established causal feature importance.
 
-## Παραγόμενα αρχεία στο prepared
+## Generated files in prepared
 
-| Αρχεία | Περιεχόμενο |
+| Files | Contents |
 |---|---|
-| dataset.csv και dataset_metadata.csv | Όλες οι 404 μετρήσεις και τα metadata τους. |
-| train.csv και train_metadata.csv | 288 μετρήσεις εκπαίδευσης και τα metadata τους. |
-| validation.csv και validation_metadata.csv | 116 μετρήσεις αξιολόγησης και τα metadata τους. |
-| schema.json | Αριθμητικές/κατηγορικές είσοδοι και στόχοι. |
-| metadata_manifest.json | Hashes των CSV δεδομένων/metadata και πλήθη γραμμών. |
-| weight_mapping.csv | Πλήθος μετρήσεων, βάρος ανά γραμμή και συνολικό βάρος ανά μελέτη. |
-| split_manifest.csv | Αντιστοίχιση ID, μελέτης, ομάδας και partition. |
-| study_coverage.csv | Κάλυψη μελετών μετά τον διαχωρισμό. |
-| previous_study_coverage.csv | Κάλυψη πριν από τον τελευταίο έλεγχο διαχωρισμού. |
-| summary.json | Πλήθη, hashes πηγών, κανόνας βαρών και πληροφορίες διαχωρισμού. |
+| `dataset.csv` and `dataset_metadata.csv` | All 404 observations and their metadata. |
+| `train.csv` and `train_metadata.csv` | 288 training observations and their metadata. |
+| `validation.csv` and `validation_metadata.csv` | 116 validation observations and their metadata. |
+| `schema.json` | Numeric features, categorical features, and targets. |
+| `metadata_manifest.json` | Data and metadata CSV hashes and row counts. |
+| `weight_mapping.csv` | Observation count, weight per row, and total weight per study. |
+| `split_manifest.csv` | Record ID, study, group, and partition assignments. |
+| `study_coverage.csv` | Study coverage after splitting. |
+| `previous_study_coverage.csv` | Study coverage before the most recent split check. |
+| `summary.json` | Counts, source hashes, weighting policy, and split information. |
 
-Τα CSV δεδομένων έχουν 27 στήλες: τις 26 του dataset1 και το split_group. Το split_group εξαιρείται από τα features.
+The data CSV files have 27 columns: the 26 columns from `dataset1` plus `split_group`. The latter is excluded from model features.
 
-Τα αντίστοιχα metadata έχουν έξι πεδία: record_id, study_id, coefficient_parameter, sample_weight, partition, rng_seed. Η δομή τους διαφέρει από τα 10 πεδία του βασικού dataset1_metadata.csv.
+Their metadata files contain six fields: `record_id`, `study_id`, `coefficient_parameter`, `sample_weight`, `partition`, and `rng_seed`. Their structure differs from the 10 fields in the base `dataset1_metadata.csv`.
 
-Σήμερα υπάρχουν 69 ομάδες και 17 μελέτες. Η μελέτη HARQ ON/OFF έχει μία μόνο ομάδα και βρίσκεται ολόκληρη στο validation. Τα πλήθη περιγράφουν την τρέχουσα έκδοση και μπορεί να αλλάξουν με νέα δεδομένα.
+The current version contains 69 groups and 17 studies. The HARQ ON/OFF study has only one group and is assigned entirely to validation. These counts describe the current version and may change when new data are added.
 
-## Εκτέλεση προετοιμασίας
+## Row alignment
 
-Από τη ρίζα του repository, σε Windows CMD:
+`csv_row` includes the header: a value of 2 identifies the first observation. Keep the two base CSV files aligned. Row numbering alone cannot detect an independent reordering of values in `dataset1`, because that file does not contain `record_id`.
 
-```cmd
-py -m venv .venv
-.venv\Scripts\python.exe -m pip install -r Dataset\requirements.txt
-.venv\Scripts\python.exe -X utf8 Dataset\prepare_weights.py
-```
+For prepared files, `metadata_manifest.json` records hashes so that subsequent training code can verify file integrity before joining data and metadata. Training code is not part of this folder. Do not independently edit the generated CSV files; update the base sources and regenerate `prepared`.
 
-Αν υπάρχει ήδη κατάλληλο virtual environment, παραλείψτε τη δημιουργία του.
-Σε Linux ή WSL:
+## Field guides
 
-```bash
-python3 -m venv .venv
-.venv/bin/python -m pip install -r Dataset/requirements.txt
-.venv/bin/python -X utf8 Dataset/prepare_weights.py
-```
+`dataset1_parameters.docx` and `dataset1_metadata_parameters.docx` explain the base fields. The two corresponding guides under `prepared` explain the generated fields. These documents are not used by the scripts.
 
-Εκτελείτε μόνο το prepare_weights.py: καλεί αυτόματα το resplit_for_coverage.py και μετά το export_metadata.py. Δεν χρειάζεται πρόσβαση στον simulator, στα αρχεία των config_path/results_path ή στο original_dataset.csv για την προετοιμασία. Οι διαδρομές προσομοιώσεων είναι πληροφορίες προέλευσης από το αρχικό περιβάλλον, όχι φορητές διαδρομές του repository.
-
-Η εντολή ξαναγράφει τα CSV/JSON του Dataset/prepared και ενημερώνει split_group και partition στο Dataset/dataset1_metadata.csv. Δεν αλλάζει τις μετρήσεις του dataset1.csv, δεν εκπαιδεύει μοντέλο, δεν εκτελεί cross-validation και δεν υπολογίζει σφάλματα προβλέψεων. Τα train/validation εδώ είναι διαχωρισμένα δεδομένα, όχι αποτελέσματα εκπαίδευσης.
-
-Κλείστε τα CSV στο Excel πριν την εκτέλεση. Αν υπάρξει σφάλμα, ενδέχεται να παραμείνουν ενδιάμεσα αρχεία· χρησιμοποιήστε τα outputs μόνο αφού ολοκληρωθεί επιτυχώς όλη η διαδικασία.
-
-## Αντιστοίχιση γραμμών
-
-Το csv_row μετρά και την κεφαλίδα: 2 σημαίνει πρώτη μέτρηση. Διατήρησε συγχρονισμένη τη σειρά των δύο βασικών CSV. Η αρίθμηση από μόνη της δεν εντοπίζει ανεξάρτητη αναδιάταξη των τιμών στο dataset1, επειδή εκεί δεν υπάρχει record_id.
-
-Για τα prepared αρχεία, το metadata_manifest.json καταγράφει hashes ώστε ο μελλοντικός κώδικας εκπαίδευσης να μπορεί να ελέγξει την αντιστοίχιση πριν συνδέσει δεδομένα και metadata. Ο κώδικας εκπαίδευσης δεν αποτελεί μέρος αυτού του φακέλου. Μην επεξεργάζεσαι ανεξάρτητα τα παραγόμενα CSV· ενημέρωσε τις βασικές πηγές και αναδημιούργησε το prepared.
-
-## Οδηγοί
-
-Τα dataset1_parameters.docx και dataset1_metadata_parameters.docx εξηγούν τα βασικά πεδία. Οι δύο αντίστοιχοι οδηγοί στο prepared εξηγούν τα παραγόμενα πεδία. Τα έγγραφα αυτά δεν εκτελούνται από τον κώδικα.
-
-## Δομή
+## Structure
 
 ```text
 Dataset/
