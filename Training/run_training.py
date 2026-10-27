@@ -4,7 +4,7 @@ import sys, subprocess, json, hashlib, datetime, shutil
 
 ROOT = Path(__file__).resolve().parent
 DATA = ROOT.parent / 'Dataset'
-sys.path.insert(0, str(ROOT/'code'))
+sys.path.insert(0, str(ROOT))
 
 def stage(name, script, *args):
     print(name, flush=True)
@@ -24,13 +24,15 @@ def main():
     def save(): status_path.write_text(json.dumps(status,indent=2,ensure_ascii=False),encoding='utf-8')
     save()
     try:
-        stage('01_prepare', DATA/'prepare_weights.py')
+        stage('01_prepare', 'prepare_weights.py')
         # Keep the exact training inputs for each run, even after future rebuilds.
         shutil.copytree(DATA/'prepared',out/'prepared_snapshot')
-        shutil.copytree(ROOT/'code',out/'code_snapshot',ignore=shutil.ignore_patterns('__pycache__'))
+        (out/'code_snapshot').mkdir()
+        for source in ROOT.glob('*.py'):
+            shutil.copy2(source,out/'code_snapshot'/source.name)
         import pandas as pd
         import numpy as np
-        from data_loading import load_prepared
+        from predict import load_prepared
         tr=load_prepared(DATA/'prepared/train.csv')
         va=load_prepared(DATA/'prepared/validation.csv')
         schema=json.loads((DATA/'prepared/schema.json').read_text())
@@ -50,11 +52,11 @@ def main():
                          for p in (DATA/'prepared').glob('*') if p.is_file()}}
         (out/'data_audit.json').write_text(json.dumps(audit,indent=2),encoding='utf-8')
         print(json.dumps(audit,indent=2),flush=True)
-        stage('02_cross_validation','code/compare_dataset1_weights.py','--data',str(DATA/'prepared'),'--output',str(out/'cross_validation'))
-        stage('03_train_validation','code/train_and_validate.py','--data',str(DATA/'prepared'),'--output',str(out/'final_results'))
+        stage('02_cross_validation','compare_dataset1_weights.py','--data',str(DATA/'prepared'),'--output',str(out/'cross_validation'))
+        stage('03_train_validation','train_and_validate.py','--data',str(DATA/'prepared'),'--output',str(out/'final_results'))
         # Exercise the public prediction script against the saved models.
         for variant in ['unweighted','impact_weighted']:
-            stage('04_predict_'+variant,'code/predict.py','--model',str(out/'final_results'/f'{variant}.joblib'),
+            stage('04_predict_'+variant,'predict.py','--model',str(out/'final_results'/f'{variant}.joblib'),
                   '--input',str(DATA/'prepared/validation.csv'),'--output',str(out/f'{variant}_prediction_check.csv'))
             check=pd.read_csv(out/f'{variant}_prediction_check.csv')
             saved=pd.read_csv(out/'final_results/validation_predictions.csv')

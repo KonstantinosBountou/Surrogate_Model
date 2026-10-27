@@ -1,44 +1,30 @@
-# Extra Trees training and validation
-
-This folder contains the training implementation from the local `Surrogate_Model1` project. It uses the sibling [`Dataset/`](../Dataset/) folder for preparation and inputs. The model code is unchanged; the orchestrator's paths have been adapted to this repository layout, and it creates its log directory automatically.
+# Training workflow
 
 ```text
-Surrogate_Model/
-├── Dataset/                 # Base inputs, preparation scripts and prepared data
-└── Training/
-    ├── run_all.cmd
-    ├── run_training.py
-    ├── requirements.txt
-    └── code/
-        ├── compare_dataset1_weights.py
-        ├── train_and_validate.py
-        ├── predict.py
-        ├── data_loading.py
-        ├── final_pipeline.py
-        ├── compare_tdd_features.py
-        └── surrogate_model.py
-```
-
-## Run on Windows (CMD)
-
-From this `Training` directory, using Python 3.12:
-
-```bat
-py -3.12 -m venv .venv
-.venv\Scripts\python.exe -m pip install -r requirements.txt
 run_all.cmd
+└── run_training.py
+    ├── prepare_weights.py
+    │   ├── resplit_for_coverage.py
+    │   └── export_metadata.py
+    ├── compare_dataset1_weights.py
+    ├── train_and_validate.py
+    └── predict.py
 ```
 
-For subsequent runs, use `run_all.cmd`. It calls `run_training.py`, which performs preparation, integrity/group-overlap checks, paired five-fold grouped cross-validation, final training and validation, and saved-model prediction checks. Preparation regenerates `Dataset/prepared/` and synchronizes groups and partitions in `Dataset/dataset1_metadata.csv`.
+| Stage | Code files | What they do |
+|---|---|---|
+| 1. Start | `run_all.cmd` → `run_training.py` | Start and coordinate the workflow, creating a separate results directory and logs. |
+| 2. Prepare | `prepare_weights.py` | Run the shared Dataset preparation: read the base CSVs, assign study coefficients as weights and construct groups. |
+| 3. Split | `resplit_for_coverage.py` | Run the shared split check, keeping whole groups together in training or validation. This stage is called automatically during preparation. |
+| 4. Export metadata | `export_metadata.py` | Run the shared metadata export: separate auxiliary fields and weights from measurements and record hashes. Called automatically during preparation. |
+| 5. Cross-validation | `compare_dataset1_weights.py` | Run paired five-fold grouped cross-validation with and without weights, using the same folds and model settings. |
+| 6. Final training and validation | `train_and_validate.py` | Fit each model on the current 288 training rows, save the `.joblib` pipelines, and evaluate on the 116 validation rows. |
+| 7. Check saved models | `predict.py` and `run_training.py` | Load models and generate predictions; verify agreement with the saved validation predictions. |
 
-See the [stage-by-stage workflow](../TRAINING_WORKFLOW.md) for each script's role. Start with the orchestrator; the metadata export helper expects intermediate preparation files and should not be run separately on final prepared outputs.
+The three preparation files here are entry points for the implementations in the sibling `Dataset/` directory. The Dataset preparation script calls its own splitting/export scripts automatically. This avoids maintaining duplicate preparation logic.
 
-## Outputs
+`predict.py` also contains the shared data-integrity checks, structural TDD features, preprocessing and Extra Trees pipeline, imported by the training scripts. No separate helper modules are required.
 
-Each run creates `results/<run_id>/` with cross-validation results, final models and validation metrics, code/data snapshots, logs and environment information. `status.json` records the latest status; `logs/` contains its stage logs. Generated outputs and `.venv/` are excluded from Git.
+`run_all.cmd` uses `Training/.venv/Scripts/python.exe`. The Python environment needs the libraries listed in `Dataset/requirements.txt`. Outputs go to `Training/results/<run_id>/`; they are not uploaded. The workflow expects 404 observations and does not tune hyperparameters. Validation is an already-inspected exploratory holdout.
 
-The final models are `final_results/unweighted.joblib` and `final_results/impact_weighted.joblib`. Both use the same Extra Trees settings; the second uses study coefficients as training sample weights. The current orchestrator expects 404 observations (288 training / 116 validation in the current prepared split). It does not tune hyperparameters.
-
-The validation set has already been inspected during development. These are exploratory results, not an untouched external test. No experimental simulator AMC changes have been incorporated into these inputs.
-
-The repository packaging was syntax-checked; uploading these scripts did not trigger a new training run. Dependencies are copied from the local project's requirements.
+Models created by this layout refer to the `predict` module. Older saved models from the previous layout still require their original helper modules and should be used with their original code snapshot.

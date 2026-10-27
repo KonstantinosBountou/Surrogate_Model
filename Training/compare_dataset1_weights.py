@@ -3,7 +3,7 @@ from pathlib import Path
 import argparse,json
 import numpy as np
 import pandas as pd
-from data_loading import load_prepared
+from predict import load_prepared
 from sklearn.compose import ColumnTransformer
 from sklearn.preprocessing import OneHotEncoder
 from sklearn.impute import SimpleImputer
@@ -12,11 +12,11 @@ from sklearn.ensemble import ExtraTreesRegressor
 from sklearn.multioutput import MultiOutputRegressor
 from sklearn.model_selection import GroupKFold
 from sklearn.metrics import mean_absolute_error,mean_squared_error,r2_score
-from compare_tdd_features import structural
+from predict import structural
 
 def main():
     p=argparse.ArgumentParser(description=__doc__)
-    p.add_argument('--data',type=Path,default=Path(__file__).resolve().parent/'dataset1_weighted')
+    p.add_argument('--data',type=Path,default=Path(__file__).resolve().parent.parent/'Dataset/prepared')
     p.add_argument('--output',type=Path,required=True)
     a=p.parse_args()
     if a.output.exists() and any(a.output.iterdir()):raise ValueError('Choose empty output folder')

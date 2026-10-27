@@ -3,15 +3,15 @@ from pathlib import Path
 import argparse,json,hashlib,platform
 import numpy as np
 import pandas as pd
-from data_loading import load_prepared
+from predict import load_prepared
 import sklearn,joblib
 from sklearn.metrics import mean_absolute_error,mean_squared_error,r2_score
-from final_pipeline import build
+from predict import build
 
 def main():
     root=Path(__file__).resolve().parent.parent
     p=argparse.ArgumentParser(description=__doc__)
-    p.add_argument('--data',type=Path,default=root/'data/prepared')
+    p.add_argument('--data',type=Path,default=root/'Dataset/prepared')
     p.add_argument('--output',type=Path,default=root/'final_results')
     a=p.parse_args()
     if a.output.exists() and any(a.output.iterdir()):raise ValueError('Choose new output folder')
