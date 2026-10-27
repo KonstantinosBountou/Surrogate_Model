@@ -1,18 +1,18 @@
 # Dataset preparation, training and validation workflow
 
-This document describes the workflow used in the local `Surrogate_Model1` project. The repository's `Dataset/` folder contains the preparation stage. The training entry points and `code/` files listed below are currently local; this document does not imply that they have been uploaded. The older model scripts at the repository root are not the entry points for this workflow.
+This document describes the workflow used in the local `Surrogate_Model1` project. The repository's `Dataset/` folder contains the preparation stage, and [`Training/`](Training/) contains the training entry points and model code. The older model scripts at the repository root are not the entry points for this workflow. Local paths in the table use `data/`; in this repository those preparation files live in `Dataset/`, which the training orchestrator resolves automatically.
 
 ## Main execution flow
 
 ```text
-run_all.cmd
-└── run_training.py
-    ├── data/prepare_weights.py
-    │   ├── data/resplit_for_coverage.py
-    │   └── data/export_metadata.py
-    ├── code/compare_dataset1_weights.py
-    ├── code/train_and_validate.py
-    └── code/predict.py
+Training/run_all.cmd
+└── Training/run_training.py
+    ├── Dataset/prepare_weights.py
+    │   ├── Dataset/resplit_for_coverage.py
+    │   └── Dataset/export_metadata.py
+    ├── Training/code/compare_dataset1_weights.py
+    ├── Training/code/train_and_validate.py
+    └── Training/code/predict.py
 ```
 
 `run_all.cmd` starts the orchestrator. The preparation entry point automatically calls the splitting and metadata-export scripts in the required order.
