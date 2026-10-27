@@ -23,6 +23,8 @@ The initial workflow runs three distances: **50, 100 and 150 m**, with UE power 
 
 ## Current progress
 
+The dataset preparation and latest local Extra Trees training workflow are documented in [Training workflow](TRAINING_WORKFLOW.md), including the execution tree and the responsibility of each script. The preparation files are available in [Dataset](Dataset/README.md); the latest training scripts described in that guide remain in the local `Surrogate_Model1` project.
+
 - Automated simulation and CSV generation are working.
-- Python scripts for Gaussian Process training and validation are included separately; integration with the n8n dataset is pending.
+- Older Python scripts for Gaussian Process training and validation are included separately at the repository root; they are distinct from the latest local Extra Trees workflow.
 - Physics-informed models and VAE synthetic-data generation are planned next stages.
