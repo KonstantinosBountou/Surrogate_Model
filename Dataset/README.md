@@ -14,9 +14,9 @@ Measurements and provenance are read exclusively from the two base CSV files.
 
 ## Workflow sequence
 
-1. **`prepare_weights.py`** checks row alignment, unique IDs, completeness, and data types. It uses `study_id` to assign coefficients from the Excel workbook. It preserves existing metadata groups and merges groups with identical input features. It writes intermediate data, the schema, and reports.
-2. **`resplit_for_coverage.py`** is called automatically. It preserves the split if no group spans both training and validation and every study is represented in validation. Otherwise, it assigns whole groups to partitions, targeting approximately 116 validation rows and training coverage where a study has at least two groups. Target values and model performance are not used to select the split.
-3. **`export_metadata.py`** is called automatically. It separates auxiliary fields from measurements, records file hashes, and updates `split_group` and `partition` in `dataset1_metadata.csv` while preserving its other fields.
+1. **`prepare_weights.py`** validates the data, assigns study weights from Excel, merges groups with identical inputs, and exports intermediate files and reports.
+2. **`resplit_for_coverage.py`** runs automatically, adjusting the split only when needed to keep groups intact and ensure study coverage, targeting about 116 validation rows without using targets or model performance.
+3. **`export_metadata.py`** runs automatically, separates metadata from measurements, records file hashes, and updates group and partition assignments while preserving other metadata.
 
 The first script is the entry point. The other scripts depend on intermediate files generated in this order.
 
