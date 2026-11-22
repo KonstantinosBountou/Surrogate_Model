@@ -17,6 +17,33 @@ Reproducible package for the 1440-run CBR study using ns-3.47 and 5G-LENA. It co
 
 The raw JSON files preserve the original simulation configuration. Training and comparison do not require ns-3, SSH or n8n. This package supplies completed simulations; rerunning the simulator requires the original corrected scenario and ns-3 build, which are not installed by the commands below. Machine-specific historical paths in archived reports are provenance only and are not needed by the portable scripts.
 
+### Main CSV files and where to find them
+
+All paths below are relative to **`Dataset-1440-train-test/`** in this repository. Click a path to open the file.
+
+| Purpose | CSV path | What it contains |
+|---|---|---|
+| Original dataset | [dataset/dataset.csv](dataset/dataset.csv) | 1,440 simulation rows with configuration inputs and all four measured outputs; five runs per configuration. |
+| Authoritative raw-run split | [dataset/metadata.csv](dataset/metadata.csv) | One record per dataset row, in matching order. `partition` assigns each run to training or validation; also includes simulation ID, seed/run, relative JSON paths and `validation_scope`. |
+| Configuration-level split | [results/reference/remaining_metrics/split_manifest.csv](results/reference/remaining_metrics/split_manifest.csv) | Assignment of 288 configuration means to 226 training and 62 validation cases. All five repetitions stay together. |
+| Training rows | [results/reference/remaining_metrics/train_runs.csv](results/reference/remaining_metrics/train_runs.csv) | The 1,130 raw simulation rows assigned to training. |
+| Validation rows | [results/reference/remaining_metrics/validation_runs.csv](results/reference/remaining_metrics/validation_runs.csv) | The 310 raw simulation rows assigned to validation. |
+| Aggregated training inputs and targets | [results/reference/delay/train_means.csv](results/reference/delay/train_means.csv) | 226 configuration means, including all four target metrics and their estimated mean variances. These are the targets used for fitting. |
+| Aggregated validation inputs and targets | [results/reference/delay/validation_means.csv](results/reference/delay/validation_means.csv) | 62 configuration means used for validation. |
+| Validation results for throughput, jitter and packet loss | [results/reference/remaining_metrics/validation_metrics.csv](results/reference/remaining_metrics/validation_metrics.csv) | MAE, RMSE and R² for every candidate and evaluation subset. Use `subset = all` for the complete 62-case validation set. |
+| Selected models for the three targets | [results/reference/remaining_metrics/selected_models.csv](results/reference/remaining_metrics/selected_models.csv) | Validation scores and the selected algorithm for each of throughput, jitter and packet loss. |
+| Validation results for delay | [results/reference/delay/validation_metrics.csv](results/reference/delay/validation_metrics.csv) | MAE, RMSE and R² for the HARQ-routed delay predictor, overall and by validation subset. |
+| Internal selection results for delay | [results/reference/delay/inner_metrics.csv](results/reference/delay/inner_metrics.csv) | Candidate performance on three grouped inner holdouts drawn only from training, separately for HARQ-on and HARQ-off. |
+| Internal split for delay selection | [results/reference/delay/inner_split_manifest.csv](results/reference/delay/inner_split_manifest.csv) | Training/holdout membership for each internal split and HARQ regime. |
+| Test configuration inputs | [test-configurations/configurations_24.csv](test-configurations/configurations_24.csv) | The 24 configuration vectors supplied to the trained models. |
+| Actual test simulation measurements | [test-configurations/ns3_runs_120.csv](test-configurations/ns3_runs_120.csv) | Five actual ns-3 runs per test configuration, 120 rows total. `compare.py` aggregates these to obtain the actual target means. |
+| Test scores for all four metrics | [results/reference/comparison/benchmark24_metrics_all.csv](results/reference/comparison/benchmark24_metrics_all.csv) | Overall benchmark MAE, RMSE, R² and negative-prediction counts. This is the main test-results summary. |
+| Actual versus predicted test values | [results/reference/comparison/benchmark24_comparison_all_metrics.csv](results/reference/comparison/benchmark24_comparison_all_metrics.csv) | The 24 configurations with actual means, predictions and absolute errors for all four metrics, side by side. |
+
+**Training results versus training-set scores:** the validation and inner-holdout reports above describe evaluation during model development. We have **not** saved a separate MAE/RMSE/R² table evaluated on the same observations used to fit the models. `train_runs.csv` and `train_means.csv` contain training data, not training-error scores. The archived `remaining_metrics/train_means.csv` and `validation_means.csv` contain only its three targets; the corresponding `delay/` files listed above include all four.
+
+After running the supplied training commands, new reports appear under `results/reproduced/remaining_metrics/` and `results/reproduced/delay/`. Running `python codes/compare.py --results reproduced` writes the two combined test-results CSVs under `results/reproduced/comparison/`. The published `results/reference/` files remain unchanged.
+
 ## 2. Install dependencies
 
 Tested with **Python 3.12.13 on Ubuntu/WSL**. Use Python 3.12 and install the pinned packages from `codes/requirements.txt`: NumPy, pandas, SciPy, scikit-learn, CatBoost and joblib. Pickle/joblib models must only be loaded from trusted sources and should use the recorded dependency versions.
