@@ -1,4 +1,5 @@
 .venv/
+!**/*.csv
 __pycache__/
 results/reproduced/
 results/reproduced_initial_check/

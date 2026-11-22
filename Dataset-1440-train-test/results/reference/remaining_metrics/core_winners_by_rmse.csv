@@ -1,0 +1,4 @@
+target,model,subset,n,mae,rmse,r2,negative_predictions,above100_loss_predictions
+jitter_ms,GaussianProcess,all,62,0.01168819901226873,0.024377372352029785,0.9845857412290421,0,0
+packet_loss_pct,GaussianProcess,all,62,1.3961847736313384,2.007685823515317,0.9778210937010957,14,0
+throughput_mbps,GaussianProcess,all,62,2.6482219304590147,3.730181339484764,0.9946120521330694,0,0

@@ -1,0 +1,16 @@
+model,fold,target,seconds
+ExtraTrees,1,throughput_mbps,0.16242074966430664
+ExtraTrees,1,jitter_ms,0.11718893051147461
+ExtraTrees,1,packet_loss_pct,0.10062551498413086
+CatBoost,1,throughput_mbps,0.2868978977203369
+CatBoost,1,jitter_ms,0.2401740550994873
+CatBoost,1,packet_loss_pct,0.2696695327758789
+GaussianProcess,1,throughput_mbps,0.1204690933227539
+GaussianProcess,1,jitter_ms,0.1403517723083496
+GaussianProcess,1,packet_loss_pct,0.1246957778930664
+ExtraTrees_weighted,1,throughput_mbps,0.19214773178100586
+ExtraTrees_weighted,1,jitter_ms,0.219710111618042
+ExtraTrees_weighted,1,packet_loss_pct,0.1907639503479004
+CatBoost_weighted,1,throughput_mbps,0.3215808868408203
+CatBoost_weighted,1,jitter_ms,0.40804338455200195
+CatBoost_weighted,1,packet_loss_pct,0.3542208671569824
