@@ -1,0 +1,147 @@
+{
+  "settings": {
+    "ExtraTrees": {
+      "n_estimators": 160,
+      "min_samples_leaf": 1,
+      "max_features": 1.0,
+      "random_state": 42,
+      "n_jobs": 2
+    },
+    "CatBoost": {
+      "iterations": 500,
+      "depth": 6,
+      "learning_rate": 0.05,
+      "loss_function": "RMSE",
+      "random_seed": 42,
+      "thread_count": 2,
+      "verbose": false,
+      "allow_writing_files": false
+    },
+    "GaussianProcess": "Standardized numeric + one-hot categorical; C * Matern(nu=1.5, isotropic) + WhiteKernel; alpha=SEM\u00b2 standardized by training target variance + 1e-8; no impact weights; zero optimizer restarts"
+  },
+  "split": {
+    "train_cases": 226,
+    "validation_cases": 62,
+    "train_runs": 1130,
+    "validation_runs": 310,
+    "new_validation_cases": 12,
+    "original_validation_cases": 38,
+    "targeted_validation_cases": 6,
+    "dense_validation_cases": 6,
+    "original_split_preserved": true,
+    "repetition_leakage": false,
+    "targeted_families_shared_across_distances": true,
+    "unknown_categories": 0,
+    "numeric_range_violations": 0,
+    "targets_used_for_new_split": false
+  },
+  "selection": "Original960 partition unchanged; targeted distances160/180 held out, others trained. This measures within-family distance interpolation for targeted cases, not unseen-family generalization. Models selected by pooled validation RMSE; original and targeted subsets reported separately.",
+  "targets": "Mean of5runs",
+  "weight_policy": {
+    "name": "changed_factor_mean_cbr_v2",
+    "reference": {
+      "ue_distance_2d_m": 100.0,
+      "ue_tx_power_dbm": 10.0,
+      "offered_load_mbps": 200.0,
+      "bandwidth_hz": 100000000.0,
+      "numerology": 2,
+      "packet_size_bytes": 1400,
+      "rlc_buffer_size_bytes": 1048576,
+      "carrier_frequency_hz": 3500000000.0,
+      "gnb_antenna_max_gain_dbi": 0.0,
+      "gnb_antenna_orientation_deg": 0.0,
+      "harq_max_retransmissions": 3,
+      "harq_processes": 16,
+      "tdd_pattern": "DL|UL|UL|UL|",
+      "scheduler_type": "TdmaRR",
+      "rlc_mode": "UM",
+      "harq_enabled": true,
+      "gnb_antenna_model": "Cosine",
+      "gnb_antenna_horizontal_beamwidth_deg": 120.0,
+      "gnb_antenna_vertical_beamwidth_deg": 360.0,
+      "traffic_model": "CBR"
+    },
+    "groups": {
+      "Channel Bandwidth": [
+        "bandwidth_hz"
+      ],
+      "UE\u2013gNB Distance": [
+        "ue_distance_2d_m"
+      ],
+      "HARQ Max Retransmissions": [
+        "harq_enabled",
+        "harq_max_retransmissions"
+      ],
+      "HARQ Processes": [
+        "harq_processes"
+      ],
+      "Numerology (\u03bc)": [
+        "numerology"
+      ],
+      "Offered Traffic Rate": [
+        "offered_load_mbps"
+      ],
+      "Packet Size": [
+        "packet_size_bytes"
+      ],
+      "RLC Mode (AM/UM)": [
+        "rlc_mode"
+      ],
+      "RLC Buffer Size": [
+        "rlc_buffer_size_bytes"
+      ],
+      "TDD Pattern": [
+        "tdd_pattern"
+      ],
+      "UE Tx Power": [
+        "ue_tx_power_dbm"
+      ],
+      "Antenna Configuration": [
+        "gnb_antenna_model",
+        "gnb_antenna_max_gain_dbi",
+        "gnb_antenna_orientation_deg",
+        "gnb_antenna_horizontal_beamwidth_deg",
+        "gnb_antenna_vertical_beamwidth_deg"
+      ],
+      "Carrier Frequency": [
+        "carrier_frequency_hz"
+      ],
+      "Traffic Model": [
+        "traffic_model"
+      ],
+      "Scheduler Type": [
+        "scheduler_type"
+      ]
+    },
+    "coefficients": {
+      "Channel Bandwidth": 5.0,
+      "UE\u2013gNB Distance": 5.0,
+      "HARQ Max Retransmissions": 4.0,
+      "HARQ Processes": 3.0,
+      "Numerology (\u03bc)": 4.0,
+      "Offered Traffic Rate": 5.0,
+      "Packet Size": 4.0,
+      "RLC Mode (AM/UM)": 5.0,
+      "RLC Buffer Size": 5.0,
+      "TDD Pattern": 5.0,
+      "UE Tx Power": 5.0,
+      "Antenna Configuration": 3.0,
+      "Carrier Frequency": 3.0,
+      "Packet Interval": 4.0,
+      "Scheduler Type": 2.0,
+      "Traffic Model": 3.0
+    },
+    "combination": "Arithmetic mean over distinct changed factor groups; baseline with no changes has weight 1. Normalize training weights to mean 1.",
+    "derived_fields": "packet_interval_us, on_data_rate_bps and nominal_duty_cycle are not counted separately from load, size and traffic. traffic_input_mode is representation, not an additional importance factor.",
+    "warning": "Heuristic weights, not optimized on validation. Scheduler group explicitly included using pre-existing coefficient 2.",
+    "duplicate_rule": "One row per base_configuration_id/traffic_model/rng_seed/rng_run; prefer traffic_input_mode=dataRate, then lexicographic record_id; never inspect targets to choose.",
+    "test_used": false
+  },
+  "test_files_used_for_fit": false,
+  "test_diagnostics_used_to_design_extension": true,
+  "source_hashes": {
+    "/mnt/c/Users/konst/OneDrive/Desktop/Diplomatiki/Interpolation/1440/data/dataset.csv": "6625521f3f81663e893d1ceb18921c82348b64802f68e999674150c15e5c54f1",
+    "/mnt/c/Users/konst/OneDrive/Desktop/Diplomatiki/Interpolation/1440/data/metadata.csv": "03f76fbb976875607325c4690d7f15b23a3b064a33ca4185edb1d5b84e0b8672",
+    "/mnt/c/Users/konst/OneDrive/Desktop/Diplomatiki/Interpolation/1440/data/schema.json": "b7d622c63bcf005761af3fc3726abd09062637cef60306a8f59ced638540feca"
+  }
+}

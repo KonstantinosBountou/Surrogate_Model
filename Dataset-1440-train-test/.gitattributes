@@ -1,0 +1,4 @@
+dataset/*.csv -text
+configurations/**/*.json -text
+test-configurations/**/*.json -text
+*.joblib binary

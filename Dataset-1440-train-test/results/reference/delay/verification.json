@@ -1,0 +1,15 @@
+{
+  "complete": true,
+  "same_dataset": false,
+  "original_outer_split_preserved": true,
+  "training_cases": 226,
+  "validation_cases": 62,
+  "selection_training_only": true,
+  "benchmark_used_for_selection": false,
+  "new_simulations": true,
+  "new_runs": 240,
+  "selected": {
+    "True": "ExtraTrees_raw",
+    "False": "CatBoost_raw"
+  }
+}

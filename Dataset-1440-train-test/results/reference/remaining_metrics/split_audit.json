@@ -1,0 +1,16 @@
+{
+  "train_cases": 226,
+  "validation_cases": 62,
+  "train_runs": 1130,
+  "validation_runs": 310,
+  "new_validation_cases": 12,
+  "original_validation_cases": 38,
+  "targeted_validation_cases": 6,
+  "dense_validation_cases": 6,
+  "original_split_preserved": true,
+  "repetition_leakage": false,
+  "targeted_families_shared_across_distances": true,
+  "unknown_categories": 0,
+  "numeric_range_violations": 0,
+  "targets_used_for_new_split": false
+}

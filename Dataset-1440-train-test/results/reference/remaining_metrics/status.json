@@ -1,0 +1,23 @@
+{
+  "status": "complete",
+  "raw_runs": 1440,
+  "averaged_cases": 288,
+  "groups": 99,
+  "algorithms": 3,
+  "additional_weighted_variants": 2,
+  "final_models": 15,
+  "holdout_splits": 1,
+  "train_cases": 226,
+  "validation_cases": 62,
+  "saved_models_include_validation": false,
+  "hyperparameter_tuning": false,
+  "test_used": false,
+  "interior_distance_accuracy_measured": true,
+  "source_unchanged": true,
+  "reload_check": "passed",
+  "versions": {
+    "python": "3.12.13",
+    "sklearn": "1.9.1",
+    "catboost": "1.2.10"
+  }
+}
