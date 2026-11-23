@@ -4,6 +4,8 @@ Reproducible package for the 1440-run CBR study using ns-3.47 and 5G-LENA. It co
 
 ## 1. Contents
 
+For a file-by-file explanation of provenance and purpose, see the [Greek documentation guide](documentation/README.md) and its [complete file inventory](documentation/file_inventory.json).
+
 | Folder | Contents |
 |---|---|
 | `dataset/` | Original 1,440-row `dataset.csv`, feature schema, and row-level metadata with relative simulation paths |
