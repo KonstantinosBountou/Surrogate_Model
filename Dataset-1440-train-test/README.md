@@ -4,7 +4,7 @@ Reproducible package for the 1440-run CBR study using ns-3.47 and 5G-LENA. It co
 
 ## 1. Contents
 
-For a file-by-file explanation of provenance and purpose, see the [Greek documentation guide](documentation/README.md) and its [complete file inventory](documentation/file_inventory.json).
+For a file-by-file explanation of provenance and purpose, see the [Greek documentation guide](documentation/README.md).
 
 | Folder | Contents |
 |---|---|
